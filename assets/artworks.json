@@ -1,46 +1,135 @@
 {
   "collections": [
     {
-      "id": "collection-1",
-      "name": "Collection One",
-      "intro": "Placeholder introduction for the first collection. Replace with the artist’s short description.",
-      "folder": "artworks/collection-1",
+      "id": "collection-abstraction",
+      "name": "Abstraction",
+      "intro": "Placeholder introduction for the Abstraction collection. Replace with the artist\u2019s short description.",
+      "folder": "artworks/collection-abstraction",
       "artworks": [
-        { "file": "painting-01.jpg", "title": "Untitled I", "price": "£1,200" },
-        { "file": "painting-02.jpg", "title": "Untitled II", "price": "£1,450" },
-        { "file": "painting-03.jpg", "title": "Untitled III", "price": "£980" }
+        {
+          "file": "4211a4c7-9a00-4965-8590-f2d36f391ab7.JPG",
+          "title": "Untitled 1",
+          "price": "Price on request"
+        },
+        {
+          "file": "5123de19-f7fa-40c9-af4e-c96173b744ea.JPG",
+          "title": "Untitled 2",
+          "price": "Price on request"
+        },
+        {
+          "file": "53bf76aa-326f-4480-aa8a-ad411fca4d6d.JPG",
+          "title": "Untitled 3",
+          "price": "Price on request"
+        },
+        {
+          "file": "5a7d2374-66f0-4fb7-9b1a-44a03764686e.JPG",
+          "title": "Untitled 4",
+          "price": "Price on request"
+        },
+        {
+          "file": "aaeefdc7-1306-4250-bb06-1278132b6f76.JPG",
+          "title": "Untitled 5",
+          "price": "Price on request"
+        }
       ]
     },
     {
-      "id": "collection-2",
-      "name": "Collection Two",
-      "intro": "Placeholder introduction for the second collection. Replace with the artist’s short description.",
-      "folder": "artworks/collection-2",
+      "id": "collection-form",
+      "name": "Form",
+      "intro": "Placeholder introduction for the Form collection. Replace with the artist\u2019s short description.",
+      "folder": "artworks/collection-form",
       "artworks": [
-        { "file": "painting-01.jpg", "title": "Untitled IV", "price": "£1,600" },
-        { "file": "painting-02.jpg", "title": "Untitled V", "price": "£1,100" }
+        {
+          "file": "386c5c64-fceb-47d2-9530-4bc3e9e1591b.JPG",
+          "title": "Untitled 1",
+          "price": "Price on request"
+        },
+        {
+          "file": "76bec763-7eee-4f11-a18a-7b4c0831e7a1.JPG",
+          "title": "Untitled 2",
+          "price": "Price on request"
+        },
+        {
+          "file": "78a98758-54f0-4c1c-a23e-66feb91e93c7.JPG",
+          "title": "Untitled 3",
+          "price": "Price on request"
+        },
+        {
+          "file": "a379613e-5bed-450d-9039-286541a6f166.JPG",
+          "title": "Untitled 4",
+          "price": "Price on request"
+        },
+        {
+          "file": "af2ead41-9971-4fce-88cf-b2ce87b6c4b2.JPG",
+          "title": "Untitled 5",
+          "price": "Price on request"
+        },
+        {
+          "file": "d400c07f-f995-4e2a-9e28-b183ed8b3ebf.JPG",
+          "title": "Untitled 6",
+          "price": "Price on request"
+        }
       ]
     },
     {
-      "id": "collection-3",
-      "name": "Collection Three",
-      "intro": "Placeholder introduction for the third collection. Replace with the artist’s short description.",
-      "folder": "artworks/collection-3",
+      "id": "collection-portraits",
+      "name": "Portraits",
+      "intro": "Placeholder introduction for the Portraits collection. Replace with the artist\u2019s short description.",
+      "folder": "artworks/collection-portraits",
       "artworks": [
-        { "file": "painting-01.jpg", "title": "Untitled VI", "price": "£2,200" },
-        { "file": "painting-02.jpg", "title": "Untitled VII", "price": "£1,750" },
-        { "file": "painting-03.jpg", "title": "Untitled VIII", "price": "£1,900" },
-        { "file": "painting-04.jpg", "title": "Untitled IX", "price": "£2,400" }
+        {
+          "file": "220e1f0a-fd2e-422f-a239-eb1100946f71.JPG",
+          "title": "Untitled 1",
+          "price": "Price on request"
+        },
+        {
+          "file": "2bd3b74b-3ace-4e97-9715-9e1609f893cf.JPG",
+          "title": "Untitled 2",
+          "price": "Price on request"
+        },
+        {
+          "file": "5d8780e7-c315-4d36-b87a-f9e561974f3d.JPG",
+          "title": "Untitled 3",
+          "price": "Price on request"
+        },
+        {
+          "file": "6de52f48-1a68-402e-8e93-0c25c15d5cad.JPG",
+          "title": "Untitled 4",
+          "price": "Price on request"
+        },
+        {
+          "file": "9be687ef-cc97-49ab-a6c0-fda80fe0451b.JPG",
+          "title": "Untitled 5",
+          "price": "Price on request"
+        },
+        {
+          "file": "a7776af2-5e3d-4be7-a432-e69318180856.JPG",
+          "title": "Untitled 6",
+          "price": "Price on request"
+        },
+        {
+          "file": "bd20e0f7-b106-4543-bbf5-27e023bfcf88.JPG",
+          "title": "Untitled 7",
+          "price": "Price on request"
+        }
       ]
     },
     {
-      "id": "collection-4",
-      "name": "Collection Four",
-      "intro": "Placeholder introduction for the fourth collection. Replace with the artist’s short description.",
-      "folder": "artworks/collection-4",
+      "id": "collection-tribal",
+      "name": "Tribal",
+      "intro": "Placeholder introduction for the Tribal collection. Replace with the artist\u2019s short description.",
+      "folder": "artworks/collection-tribal",
       "artworks": [
-        { "file": "painting-01.jpg", "title": "Untitled X", "price": "£1,300" },
-        { "file": "painting-02.jpg", "title": "Untitled XI", "price": "£1,850" }
+        {
+          "file": "1b609bf8-a5b8-4b75-9949-a54fcc9072a7.JPG",
+          "title": "Untitled 1",
+          "price": "Price on request"
+        },
+        {
+          "file": "c7c603b3-9719-4a3a-b282-cd7d0d7530e7.JPG",
+          "title": "Untitled 2",
+          "price": "Price on request"
+        }
       ]
     }
   ]
