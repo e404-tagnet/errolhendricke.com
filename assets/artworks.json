@@ -1,0 +1,47 @@
+{
+  "collections": [
+    {
+      "id": "collection-1",
+      "name": "Collection One",
+      "intro": "Placeholder introduction for the first collection. Replace with the artist’s short description.",
+      "folder": "artworks/collection-1",
+      "artworks": [
+        { "file": "painting-01.jpg", "title": "Untitled I", "price": "£1,200" },
+        { "file": "painting-02.jpg", "title": "Untitled II", "price": "£1,450" },
+        { "file": "painting-03.jpg", "title": "Untitled III", "price": "£980" }
+      ]
+    },
+    {
+      "id": "collection-2",
+      "name": "Collection Two",
+      "intro": "Placeholder introduction for the second collection. Replace with the artist’s short description.",
+      "folder": "artworks/collection-2",
+      "artworks": [
+        { "file": "painting-01.jpg", "title": "Untitled IV", "price": "£1,600" },
+        { "file": "painting-02.jpg", "title": "Untitled V", "price": "£1,100" }
+      ]
+    },
+    {
+      "id": "collection-3",
+      "name": "Collection Three",
+      "intro": "Placeholder introduction for the third collection. Replace with the artist’s short description.",
+      "folder": "artworks/collection-3",
+      "artworks": [
+        { "file": "painting-01.jpg", "title": "Untitled VI", "price": "£2,200" },
+        { "file": "painting-02.jpg", "title": "Untitled VII", "price": "£1,750" },
+        { "file": "painting-03.jpg", "title": "Untitled VIII", "price": "£1,900" },
+        { "file": "painting-04.jpg", "title": "Untitled IX", "price": "£2,400" }
+      ]
+    },
+    {
+      "id": "collection-4",
+      "name": "Collection Four",
+      "intro": "Placeholder introduction for the fourth collection. Replace with the artist’s short description.",
+      "folder": "artworks/collection-4",
+      "artworks": [
+        { "file": "painting-01.jpg", "title": "Untitled X", "price": "£1,300" },
+        { "file": "painting-02.jpg", "title": "Untitled XI", "price": "£1,850" }
+      ]
+    }
+  ]
+}
