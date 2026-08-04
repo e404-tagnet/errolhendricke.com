@@ -26,6 +26,11 @@
       <div class="collection-meta">
         <h2 id="collection-name" class="collection-name">Collection One</h2>
         <p id="collection-intro" class="collection-intro">Placeholder introduction for the first collection. Replace with the artist’s short description.</p>
+
+        <div class="collection-thumbs" id="collection-thumbs" aria-label="Collection artworks">
+          <!-- thumbnails injected by JS -->
+        </div>
+
         <div class="collection-controls">
           <button id="prev-collection" class="control-btn" aria-label="Previous collection">← Prev</button>
           <span id="collection-counter" class="counter">1 / 4</span>
@@ -46,6 +51,11 @@
       </div>
 
       <div class="gallery-dots" id="gallery-dots" aria-label="Artwork pagination"></div>
+
+      <div class="lightbox" id="lightbox" aria-hidden="true">
+        <button class="lightbox-close" id="lightbox-close" aria-label="Close preview">×</button>
+        <img id="lightbox-img" src="" alt="" />
+      </div>
     </section>
 
     <section id="about" class="about-section">

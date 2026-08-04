@@ -11,8 +11,12 @@
     collectionName: document.getElementById('collection-name'),
     collectionIntro: document.getElementById('collection-intro'),
     collectionCounter: document.getElementById('collection-counter'),
+    collectionThumbs: document.getElementById('collection-thumbs'),
     track: document.getElementById('carousel-track'),
     dots: document.getElementById('gallery-dots'),
+    lightbox: document.getElementById('lightbox'),
+    lightboxImg: document.getElementById('lightbox-img'),
+    lightboxClose: document.getElementById('lightbox-close'),
     prevCollection: document.getElementById('prev-collection'),
     nextCollection: document.getElementById('next-collection'),
     prevImage: document.getElementById('prev-image'),
@@ -22,12 +26,37 @@
     siteNav: document.querySelector('.site-nav')
   };
 
+  function getCollection() {
+    return state.collections[state.collectionIndex];
+  }
+
   function getSlides() {
     return Array.from(els.track.querySelectorAll('.carousel-slide'));
   }
 
+  function renderThumbs() {
+    const collection = getCollection();
+    if (!collection || !collection.artworks.length || !els.collectionThumbs) return;
+
+    els.collectionThumbs.innerHTML = '';
+    collection.artworks.forEach((art, i) => {
+      const btn = document.createElement('button');
+      btn.className = 'collection-thumb' + (i === state.imageIndex ? ' active' : '');
+      btn.setAttribute('aria-label', `View ${art.title}`);
+      btn.innerHTML = `<img src="${collection.folder}/${art.file}" alt="" loading="lazy" />`;
+      btn.addEventListener('click', () => setImage(i));
+      els.collectionThumbs.appendChild(btn);
+    });
+  }
+
+  function updateThumbs() {
+    if (!els.collectionThumbs) return;
+    const thumbs = els.collectionThumbs.querySelectorAll('.collection-thumb');
+    thumbs.forEach((t, i) => t.classList.toggle('active', i === state.imageIndex));
+  }
+
   function renderSlides() {
-    const collection = state.collections[state.collectionIndex];
+    const collection = getCollection();
     if (!collection || !collection.artworks.length) return;
 
     els.track.innerHTML = '';
@@ -43,20 +72,23 @@
           </figcaption>
         </figure>
       `;
-      slide.addEventListener('click', () => setImage(i));
+      const img = slide.querySelector('img');
+      img.addEventListener('click', (e) => {
+        e.stopPropagation();
+        openLightbox(`${collection.folder}/${art.file}`, art.title);
+      });
       els.track.appendChild(slide);
     });
     positionTrack();
     renderDots();
+    renderThumbs();
   }
 
   function positionTrack() {
     const slides = getSlides();
     if (!slides.length) return;
 
-    // Determine slide width + gap for precise translation
     const slide = slides[0];
-    const style = window.getComputedStyle(slide);
     const slideWidth = slide.getBoundingClientRect().width;
     const gap = parseFloat(window.getComputedStyle(els.track).gap) || 0;
     const offset = state.imageIndex * (slideWidth + gap);
@@ -64,25 +96,29 @@
   }
 
   function setImage(index) {
-    const collection = state.collections[state.collectionIndex];
+    const collection = getCollection();
     if (!collection || !collection.artworks.length) return;
     state.imageIndex = ((index % collection.artworks.length) + collection.artworks.length) % collection.artworks.length;
+    if (els.collectionCounter) {
+      els.collectionCounter.textContent = `${state.imageIndex + 1} / ${collection.artworks.length}`;
+    }
     positionTrack();
     renderDots();
+    updateThumbs();
   }
 
   function setCollection(index) {
     state.collectionIndex = ((index % state.collections.length) + state.collections.length) % state.collections.length;
-    const collection = state.collections[state.collectionIndex];
+    const collection = getCollection();
     els.collectionName.textContent = collection.name;
     els.collectionIntro.textContent = collection.intro;
-    els.collectionCounter.textContent = `${state.collectionIndex + 1} / ${state.collections.length}`;
+    els.collectionCounter.textContent = `${state.imageIndex + 1} / ${collection.artworks.length}`;
     state.imageIndex = 0;
     renderSlides();
   }
 
   function renderDots() {
-    const collection = state.collections[state.collectionIndex];
+    const collection = getCollection();
     els.dots.innerHTML = '';
     collection.artworks.forEach((_, i) => {
       const btn = document.createElement('button');
@@ -91,6 +127,22 @@
       btn.addEventListener('click', () => setImage(i));
       els.dots.appendChild(btn);
     });
+  }
+
+  function openLightbox(src, alt) {
+    if (!els.lightbox || !els.lightboxImg) return;
+    els.lightboxImg.src = src;
+    els.lightboxImg.alt = alt;
+    els.lightbox.classList.add('open');
+    els.lightbox.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    if (!els.lightbox) return;
+    els.lightbox.classList.remove('open');
+    els.lightbox.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
   }
 
   function nextImage() { setImage(state.imageIndex + 1); }
@@ -122,11 +174,19 @@
     els.nextCollection.addEventListener('click', nextCollection);
     els.prevCollection.addEventListener('click', prevCollection);
 
+    if (els.lightboxClose) els.lightboxClose.addEventListener('click', closeLightbox);
+    if (els.lightbox) {
+      els.lightbox.addEventListener('click', (e) => {
+        if (e.target === els.lightbox) closeLightbox();
+      });
+    }
+
     document.addEventListener('keydown', (e) => {
       if (e.key === 'ArrowRight') nextImage();
       if (e.key === 'ArrowLeft') prevImage();
       if (e.key === 'ArrowDown') nextCollection();
       if (e.key === 'ArrowUp') prevCollection();
+      if (e.key === 'Escape') closeLightbox();
     });
 
     let resizeTimeout;
