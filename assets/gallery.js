@@ -91,7 +91,9 @@
     const slide = slides[0];
     const slideWidth = slide.getBoundingClientRect().width;
     const gap = parseFloat(window.getComputedStyle(els.track).gap) || 0;
-    const offset = state.imageIndex * (slideWidth + gap);
+    const viewportWidth = els.track.parentElement.getBoundingClientRect().width;
+    const centeringOffset = Math.max(0, (viewportWidth - slideWidth) / 2);
+    const offset = state.imageIndex * (slideWidth + gap) - centeringOffset;
     els.track.style.transform = `translateX(-${offset}px)`;
   }
 

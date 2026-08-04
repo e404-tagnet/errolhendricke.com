@@ -205,6 +205,34 @@ button { font-family: inherit; cursor: pointer; }
   overflow: hidden;
   position: relative;
   border-radius: 8px;
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 10%,
+    black 90%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 10%,
+    black 90%,
+    transparent 100%
+  );
+}
+
+.carousel-viewport::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  box-shadow:
+    inset 70px 0 90px -50px var(--bg-primary),
+    inset -70px 0 90px -50px var(--bg-primary),
+    inset 0 30px 70px -40px var(--bg-primary),
+    inset 0 -30px 70px -40px var(--bg-primary);
+  border-radius: 8px;
+  z-index: 4;
 }
 
 .carousel-track {
@@ -244,28 +272,14 @@ button { font-family: inherit; cursor: pointer; }
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background:
-    radial-gradient(
-      circle at 50% 45%,
-      transparent 38%,
-      rgba(15, 15, 18, 0.22) 68%,
-      rgba(15, 15, 18, 0.55) 100%
-    ),
-    linear-gradient(
-      to right,
-      rgba(15, 15, 18, 0.45) 0%,
-      transparent 12%,
-      transparent 88%,
-      rgba(15, 15, 18, 0.45) 100%
-    );
+  background: radial-gradient(
+    circle at 50% 45%,
+    transparent 38%,
+    rgba(15, 15, 18, 0.22) 68%,
+    rgba(15, 15, 18, 0.55) 100%
+  );
   border-radius: 3px;
   z-index: 1;
-}
-
-.carousel-viewport {
-  overflow: hidden;
-  position: relative;
-  border-radius: 8px;
 }
 
 .artwork-frame img {
