@@ -35,7 +35,7 @@
   --frame: var(--soft-taupe-grey);
   --shadow: rgba(35, 29, 26, 0.12);
 
-  --frame-dark: #2C2826;
+  --frame-dark: #3C3530;
   --frame-light: #E8E2DC;
   --frame-border: rgba(44, 40, 38, 0.22);
 
@@ -137,6 +137,11 @@ button { font-family: inherit; cursor: pointer; }
   margin-bottom: 1.75rem;
 }
 
+.collection-meta .collection-controls {
+  justify-content: center;
+  width: 100%;
+}
+
 .collection-name {
   font-family: var(--font-display);
   font-size: clamp(1.4rem, 3vw, 2rem);
@@ -156,6 +161,7 @@ button { font-family: inherit; cursor: pointer; }
 .collection-controls {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.75rem;
   background: rgba(220, 214, 208, 0.55);
   padding: 0.35rem 0.6rem;
@@ -163,23 +169,26 @@ button { font-family: inherit; cursor: pointer; }
   border: 1px solid var(--frame);
 }
 
-.counter { display: none; }
-
-.control-btn {
+.collection-controls .control-btn {
+  font-size: 1.1rem;
+  padding: 0.25rem 0.55rem;
+  min-width: 2rem;
+  text-align: center;
   background: transparent;
   border: none;
   color: var(--text-muted);
   font-weight: 600;
-  font-size: 1.1rem;
-  padding: 0.25rem 0.55rem;
   border-radius: 6px;
   transition: color 0.2s ease, background 0.2s ease;
+  cursor: pointer;
 }
 
-.control-btn:hover {
+.collection-controls .control-btn:hover {
   color: var(--accent-strong);
   background: rgba(143, 46, 43, 0.08);
 }
+
+.counter { display: none; }
 
 /* Carousel */
 .gallery-stage {
@@ -196,18 +205,14 @@ button { font-family: inherit; cursor: pointer; }
   overflow: hidden;
   position: relative;
   border-radius: 8px;
-  mask-image: linear-gradient(
-    to right,
-    transparent 0%,
-    black 18%,
-    black 82%,
+  mask-image: radial-gradient(
+    ellipse at center,
+    black 55%,
     transparent 100%
   );
-  -webkit-mask-image: linear-gradient(
-    to right,
-    transparent 0%,
-    black 18%,
-    black 82%,
+  -webkit-mask-image: radial-gradient(
+    ellipse at center,
+    black 55%,
     transparent 100%
   );
 }
@@ -620,8 +625,8 @@ button { font-family: inherit; cursor: pointer; }
   .carousel-slide { flex: 0 0 84vw; }
   .artwork-frame img { max-height: 60vh; }
   .carousel-viewport {
-    mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
-    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+    mask-image: radial-gradient(ellipse at center, black 55%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse at center, black 55%, transparent 100%);
   }
   .about-section { grid-template-columns: 1fr; }
   .about-image { display: none; }
@@ -638,3 +643,4 @@ a:focus-visible, button:focus-visible, .dot:focus-visible {
   outline: 2px solid var(--accent-strong);
   outline-offset: 2px;
 }
+renamed '/tmp/hermes-snap-b63a2871d80e.sh.tmp.60774' -> '/tmp/hermes-snap-b63a2871d80e.sh'
