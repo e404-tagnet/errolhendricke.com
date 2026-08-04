@@ -35,7 +35,7 @@
   --frame: var(--soft-taupe-grey);
   --shadow: rgba(35, 29, 26, 0.12);
 
-  --frame-dark: #3C3530;
+  --frame-dark: #4A4540;
   --frame-light: #E8E2DC;
   --frame-border: rgba(44, 40, 38, 0.22);
 
@@ -245,9 +245,9 @@ button { font-family: inherit; cursor: pointer; }
   inset: 0;
   pointer-events: none;
   background: radial-gradient(
-    circle at 50% 50%,
-    transparent 38%,
-    rgba(15, 15, 18, 0.25) 68%,
+    circle at 50% 45%,
+    transparent 42%,
+    rgba(15, 15, 18, 0.22) 72%,
     rgba(15, 15, 18, 0.55) 100%
   );
   border-radius: 3px;
@@ -261,17 +261,31 @@ button { font-family: inherit; cursor: pointer; }
   mask-image: linear-gradient(
     to right,
     transparent 0%,
-    black 14%,
-    black 86%,
+    black 8%,
+    black 92%,
+    transparent 100%
+  ), linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 6%,
+    black 94%,
     transparent 100%
   );
   -webkit-mask-image: linear-gradient(
     to right,
     transparent 0%,
-    black 14%,
-    black 86%,
+    black 8%,
+    black 92%,
+    transparent 100%
+  ), linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 6%,
+    black 94%,
     transparent 100%
   );
+  mask-composite: intersect;
+  -webkit-mask-composite: source-in;
 }
 
 .artwork-frame img {
@@ -655,9 +669,15 @@ button { font-family: inherit; cursor: pointer; }
   }
   .gallery-stage { grid-template-columns: 40px 1fr 40px; gap: 0.35rem; padding: 0 0.5rem; }
   .image-nav { width: 36px; height: 36px; font-size: 1.25rem; }
+  .carousel-viewport {
+    border-radius: 6px;
+    mask-image: linear-gradient(to right, transparent 0%, black 4%, black 96%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 4%, black 96%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 4%, black 96%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 4%, black 96%, transparent 100%);
+    mask-composite: intersect;
+    -webkit-mask-composite: source-in;
+  }
   .carousel-slide { flex: 0 0 84vw; }
   .artwork-frame img { max-height: 60vh; }
-  .carousel-viewport { border-radius: 6px; }
   .about-section { grid-template-columns: 1fr; }
   .about-image { display: none; }
   .about-text { text-align: center; }
@@ -674,3 +694,4 @@ a:focus-visible, button:focus-visible, .dot:focus-visible {
   outline-offset: 2px;
 }
 renamed '/tmp/hermes-snap-b63a2871d80e.sh.tmp.60774' -> '/tmp/hermes-snap-b63a2871d80e.sh'
+renamed '/tmp/hermes-snap-6ca7138bb327.sh.tmp.77692' -> '/tmp/hermes-snap-6ca7138bb327.sh'
