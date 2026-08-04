@@ -35,7 +35,7 @@
   --frame: var(--soft-taupe-grey);
   --shadow: rgba(35, 29, 26, 0.12);
 
-  --frame-dark: #2C2826;
+  --frame-dark: #4A4440;
   --frame-light: #E8E2DC;
   --frame-border: rgba(44, 40, 38, 0.22);
 
@@ -71,8 +71,8 @@ button { font-family: inherit; cursor: pointer; }
 .site-title {
   font-family: var(--font-display);
   font-size: clamp(2.2rem, 7vw, 5rem);
-  font-weight: 900;
-  letter-spacing: -0.08em;
+  font-weight: 300;
+  letter-spacing: 0.18em;
   line-height: 0.95;
   color: var(--text-primary);
   text-transform: uppercase;
@@ -80,9 +80,9 @@ button { font-family: inherit; cursor: pointer; }
 
 .site-subtitle {
   font-family: var(--font-display);
-  font-weight: 400;
+  font-weight: 300;
   font-size: clamp(0.75rem, 1.3vw, 1rem);
-  letter-spacing: 0.42em;
+  letter-spacing: 0.55em;
   text-transform: uppercase;
   color: var(--text-muted);
   margin-top: 0.55rem;
