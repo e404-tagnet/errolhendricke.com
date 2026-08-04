@@ -11,9 +11,7 @@
     collectionName: document.getElementById('collection-name'),
     collectionIntro: document.getElementById('collection-intro'),
     collectionCounter: document.getElementById('collection-counter'),
-    image: document.getElementById('artwork-image'),
-    title: document.getElementById('artwork-title'),
-    price: document.getElementById('artwork-price'),
+    track: document.getElementById('carousel-track'),
     dots: document.getElementById('gallery-dots'),
     prevCollection: document.getElementById('prev-collection'),
     nextCollection: document.getElementById('next-collection'),
@@ -24,16 +22,52 @@
     siteNav: document.querySelector('.site-nav')
   };
 
+  function getSlides() {
+    return Array.from(els.track.querySelectorAll('.carousel-slide'));
+  }
+
+  function renderSlides() {
+    const collection = state.collections[state.collectionIndex];
+    if (!collection || !collection.artworks.length) return;
+
+    els.track.innerHTML = '';
+    collection.artworks.forEach((art, i) => {
+      const slide = document.createElement('div');
+      slide.className = 'carousel-slide';
+      slide.innerHTML = `
+        <figure class="artwork-frame">
+          <img src="${collection.folder}/${art.file}" alt="${art.title}" loading="lazy" />
+          <figcaption class="artwork-caption">
+            <span class="artwork-title">${art.title}</span>
+            <span class="artwork-price">${art.price}</span>
+          </figcaption>
+        </figure>
+      `;
+      slide.addEventListener('click', () => setImage(i));
+      els.track.appendChild(slide);
+    });
+    positionTrack();
+    renderDots();
+  }
+
+  function positionTrack() {
+    const slides = getSlides();
+    if (!slides.length) return;
+
+    // Determine slide width + gap for precise translation
+    const slide = slides[0];
+    const style = window.getComputedStyle(slide);
+    const slideWidth = slide.getBoundingClientRect().width;
+    const gap = parseFloat(window.getComputedStyle(els.track).gap) || 0;
+    const offset = state.imageIndex * (slideWidth + gap);
+    els.track.style.transform = `translateX(-${offset}px)`;
+  }
+
   function setImage(index) {
     const collection = state.collections[state.collectionIndex];
     if (!collection || !collection.artworks.length) return;
     state.imageIndex = ((index % collection.artworks.length) + collection.artworks.length) % collection.artworks.length;
-    const art = collection.artworks[state.imageIndex];
-    const src = `${collection.folder}/${art.file}`;
-    els.image.src = src;
-    els.image.alt = art.title;
-    els.title.textContent = art.title;
-    els.price.textContent = art.price;
+    positionTrack();
     renderDots();
   }
 
@@ -44,7 +78,7 @@
     els.collectionIntro.textContent = collection.intro;
     els.collectionCounter.textContent = `${state.collectionIndex + 1} / ${state.collections.length}`;
     state.imageIndex = 0;
-    setImage(0);
+    renderSlides();
   }
 
   function renderDots() {
@@ -93,6 +127,12 @@
       if (e.key === 'ArrowLeft') prevImage();
       if (e.key === 'ArrowDown') nextCollection();
       if (e.key === 'ArrowUp') prevCollection();
+    });
+
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(positionTrack, 120);
     });
 
     if (els.menuToggle && els.siteNav) {
