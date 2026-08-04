@@ -3,73 +3,58 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Errol Hendrickse — Art Gallery</title>
+  <title>Errol Hendrickse — Online Gallery</title>
   <link rel="stylesheet" href="assets/style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Source+Code+Pro:wght@300;400;500;700;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet" />
+  <style>
+    .placeholder-page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem 4vw;
+      background: var(--bg-gradient);
+    }
+    .placeholder-title {
+      font-family: var(--font-display);
+      font-size: clamp(3.5rem, 12vw, 9rem);
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      line-height: 0.95;
+      color: var(--text-primary);
+    }
+    .placeholder-subtitle {
+      font-family: var(--font-body);
+      font-weight: 300;
+      font-size: clamp(1rem, 2.2vw, 1.5rem);
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-top: 1rem;
+    }
+    .placeholder-gap {
+      height: clamp(2.5rem, 8vh, 5rem);
+    }
+    .placeholder-soon {
+      font-family: var(--font-display);
+      font-size: clamp(1.4rem, 3.5vw, 2.4rem);
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent-strong);
+    }
+  </style>
 </head>
 <body>
-  <header class="site-header">
-    <h1 class="site-title">Errol Hendrickse</h1>
-    <p class="site-subtitle">Online Gallery</p>
-    <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">Menu</button>
-    <nav class="site-nav" aria-label="Main">
-      <a href="#collections">Collections</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
-
-  <main>
-    <section id="collections" class="collections-section" aria-label="Art collections">
-      <div class="collection-meta">
-        <h2 id="collection-name" class="collection-name">Collection One</h2>
-        <p id="collection-intro" class="collection-intro">Placeholder introduction for the first collection. Replace with the artist’s short description.</p>
-        <div class="collection-controls">
-          <button id="prev-collection" class="control-btn" aria-label="Previous collection">← Prev</button>
-          <span id="collection-counter" class="counter">1 / 4</span>
-          <button id="next-collection" class="control-btn" aria-label="Next collection">Next →</button>
-        </div>
-      </div>
-
-      <div class="gallery-stage">
-        <button id="prev-image" class="image-nav image-nav-left" aria-label="Previous artwork">‹</button>
-
-        <div class="carousel-viewport">
-          <div class="carousel-track" id="carousel-track">
-            <!-- slides injected by JS -->
-          </div>
-        </div>
-
-        <button id="next-image" class="image-nav image-nav-right" aria-label="Next artwork">›</button>
-      </div>
-
-      <div class="gallery-dots" id="gallery-dots" aria-label="Artwork pagination"></div>
-    </section>
-
-    <section id="about" class="about-section">
-      <div class="about-image">
-        <img src="artworks/bio/artist-placeholder.jpg" alt="Errol Hendrickse" loading="lazy" onerror="this.src='assets/placeholder-bio.svg'" />
-      </div>
-      <div class="about-text">
-        <h2>About the Artist</h2>
-        <p>Placeholder paragraph one: a short biography of Errol Hendrickse, covering background, influences, and approach to painting.</p>
-        <p>Placeholder paragraph two: statement on current practice, themes explored, and what drives the work.</p>
-      </div>
-    </section>
-
-    <section id="contact" class="contact-section">
-      <h2>Acquire / Enquire</h2>
-      <p>For sales, commissions, and exhibition enquiries, please contact the gallery.</p>
-      <a class="accent-link" href="mailto:studio@errolhendrickse.com">studio@errolhendrickse.com</a>
-    </section>
+  <main class="placeholder-page">
+    <h1 class="placeholder-title">Errol Hendrickse</h1>
+    <p class="placeholder-subtitle">Online Gallery</p>
+    <div class="placeholder-gap" aria-hidden="true"></div>
+    <p class="placeholder-soon">Coming Soon</p>
   </main>
-
-  <footer class="site-footer">
-    <p>© <span id="year"></span> Errol Hendrickse. All rights reserved.</p>
-  </footer>
-
-  <script src="assets/gallery.js"></script>
 </body>
 </html>
