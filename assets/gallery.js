@@ -4,7 +4,8 @@
   const state = {
     collections: [],
     collectionIndex: 0,
-    imageIndex: 0
+    imageIndex: 0,
+    scrolling: false
   };
 
   const els = {
@@ -12,6 +13,7 @@
     collectionIntro: document.getElementById('collection-intro'),
     collectionCounter: document.getElementById('collection-counter'),
     collectionThumbs: document.getElementById('collection-thumbs'),
+    viewport: document.querySelector('.carousel-viewport'),
     track: document.getElementById('carousel-track'),
     dots: document.getElementById('gallery-dots'),
     lightbox: document.getElementById('lightbox'),
@@ -32,6 +34,10 @@
 
   function getSlides() {
     return Array.from(els.track.querySelectorAll('.carousel-slide'));
+  }
+
+  function getRealSlides() {
+    return Array.from(els.track.querySelectorAll('.carousel-slide:not(.clone)'));
   }
 
   function renderThumbs() {
@@ -55,68 +61,91 @@
     thumbs.forEach((t, i) => t.classList.toggle('active', i === state.imageIndex));
   }
 
+  function createSlide(art, collection, isClone) {
+    const slide = document.createElement('div');
+    slide.className = 'carousel-slide' + (isClone ? ' clone' : '');
+    slide.innerHTML = `
+      <figure class="artwork-frame">
+        <img src="${collection.folder}/${art.file}" alt="${art.title}" loading="lazy" />
+        <figcaption class="artwork-caption">
+          <span class="artwork-title">${art.title}</span>
+          <span class="artwork-price">${art.price}</span>
+        </figcaption>
+      </figure>
+    `;
+    const img = slide.querySelector('img');
+    img.addEventListener('click', (e) => {
+      e.stopPropagation();
+      openLightbox(`${collection.folder}/${art.file}`, art.title);
+    });
+    return slide;
+  }
+
   function renderSlides() {
     const collection = getCollection();
     if (!collection || !collection.artworks.length) return;
 
     els.track.innerHTML = '';
-    collection.artworks.forEach((art, i) => {
-      const slide = document.createElement('div');
-      slide.className = 'carousel-slide';
-      slide.innerHTML = `
-        <figure class="artwork-frame">
-          <img src="${collection.folder}/${art.file}" alt="${art.title}" loading="lazy" />
-          <figcaption class="artwork-caption">
-            <span class="artwork-title">${art.title}</span>
-            <span class="artwork-price">${art.price}</span>
-          </figcaption>
-        </figure>
-      `;
-      const img = slide.querySelector('img');
-      img.addEventListener('click', (e) => {
-        e.stopPropagation();
-        openLightbox(`${collection.folder}/${art.file}`, art.title);
-      });
-      els.track.appendChild(slide);
+    const artworks = collection.artworks;
+    const len = artworks.length;
+
+    // Clone last at start and first at end for infinite centering
+    if (len > 1) {
+      els.track.appendChild(createSlide(artworks[len - 1], collection, true));
+    }
+    artworks.forEach((art) => {
+      els.track.appendChild(createSlide(art, collection, false));
     });
-    positionTrack();
+    if (len > 1) {
+      els.track.appendChild(createSlide(artworks[0], collection, true));
+    }
+
+    state.imageIndex = 0;
     renderDots();
     renderThumbs();
+
+    // Center on the real first slide (index 1) without animation
+    requestAnimationFrame(() => {
+      const realSlides = getRealSlides();
+      if (realSlides.length && len > 1) {
+        realSlides[0].scrollIntoView({ inline: 'center', block: 'nearest' });
+      }
+    });
   }
 
-  function positionTrack() {
-    const slides = getSlides();
-    if (!slides.length) return;
+  function scrollToIndex(index, smooth = true) {
+    const realSlides = getRealSlides();
+    if (!realSlides.length) return;
 
-    const slide = slides[0];
-    const slideWidth = slide.getBoundingClientRect().width;
-    const gap = parseFloat(window.getComputedStyle(els.track).gap) || 0;
-    const viewportWidth = els.track.parentElement.getBoundingClientRect().width;
-    const centeringOffset = Math.max(0, (viewportWidth - slideWidth) / 2);
-    const offset = state.imageIndex * (slideWidth + gap) - centeringOffset;
-    els.track.style.transform = `translateX(-${offset}px)`;
+    const len = realSlides.length;
+    state.imageIndex = ((index % len) + len) % len;
+
+    const target = realSlides[state.imageIndex];
+    if (!target) return;
+
+    state.scrolling = true;
+    target.scrollIntoView({ behavior: smooth ? 'smooth' : 'auto', inline: 'center', block: 'nearest' });
+
+    if (els.collectionCounter) {
+      els.collectionCounter.textContent = `${state.imageIndex + 1} / ${len}`;
+    }
+    renderDots();
+    updateThumbs();
+
+    clearTimeout(state.scrollTimeout);
+    state.scrollTimeout = setTimeout(() => { state.scrolling = false; }, 650);
   }
 
   function setImage(index) {
-    const collection = getCollection();
-    if (!collection || !collection.artworks.length) return;
-    state.imageIndex = ((index % collection.artworks.length) + collection.artworks.length) % collection.artworks.length;
-    if (els.collectionCounter) {
-      els.collectionCounter.textContent = `${state.imageIndex + 1} / ${collection.artworks.length}`;
-    }
-    positionTrack();
-    renderDots();
-    updateThumbs();
+    scrollToIndex(index, true);
   }
 
   function setCollection(index) {
-    state.collectionIndex = ((index % state.collections.length) + state.collections.length) % state.collections.length;
+    const len = state.collections.length;
+    state.collectionIndex = ((index % len) + len) % len;
     const collection = getCollection();
     els.collectionName.textContent = collection.name;
     els.collectionIntro.textContent = collection.intro;
-    if (els.collectionCounter) {
-      els.collectionCounter.textContent = `${state.imageIndex + 1} / ${collection.artworks.length}`;
-    }
     state.imageIndex = 0;
     renderSlides();
   }
@@ -128,9 +157,50 @@
       const btn = document.createElement('button');
       btn.className = 'dot' + (i === state.imageIndex ? ' active' : '');
       btn.setAttribute('aria-label', `Go to artwork ${i + 1}`);
-      btn.addEventListener('click', () => setImage(i));
+      btn.addEventListener('click', () => scrollToIndex(i, true));
       els.dots.appendChild(btn);
     });
+  }
+
+  function handleScrollEnd() {
+    if (state.scrolling) return;
+
+    const slides = getSlides();
+    const realSlides = getRealSlides();
+    if (!slides.length || !realSlides.length) return;
+
+    const viewportCenter = els.viewport.getBoundingClientRect().left + els.viewport.getBoundingClientRect().width / 2;
+    let closestIndex = 0;
+    let closestDistance = Infinity;
+
+    slides.forEach((slide, i) => {
+      const rect = slide.getBoundingClientRect();
+      const slideCenter = rect.left + rect.width / 2;
+      const dist = Math.abs(slideCenter - viewportCenter);
+      if (dist < closestDistance) {
+        closestDistance = dist;
+        closestIndex = i;
+      }
+    });
+
+    const len = realSlides.length;
+    // If centered on leading clone, jump to last real slide
+    if (slides[closestIndex].classList.contains('clone')) {
+      const isLastClone = closestIndex === slides.length - 1;
+      state.imageIndex = isLastClone ? 0 : len - 1;
+      const target = realSlides[state.imageIndex];
+      state.scrolling = true;
+      target.scrollIntoView({ behavior: 'auto', inline: 'center', block: 'nearest' });
+      setTimeout(() => { state.scrolling = false; }, 50);
+    } else {
+      state.imageIndex = closestIndex - 1;
+    }
+
+    if (els.collectionCounter) {
+      els.collectionCounter.textContent = `${state.imageIndex + 1} / ${len}`;
+    }
+    renderDots();
+    updateThumbs();
   }
 
   function openLightbox(src, alt) {
@@ -149,8 +219,8 @@
     document.body.style.overflow = '';
   }
 
-  function nextImage() { setImage(state.imageIndex + 1); }
-  function prevImage() { setImage(state.imageIndex - 1); }
+  function nextImage() { scrollToIndex(state.imageIndex + 1, true); }
+  function prevImage() { scrollToIndex(state.imageIndex - 1, true); }
   function nextCollection() { setCollection(state.collectionIndex + 1); }
   function prevCollection() { setCollection(state.collectionIndex - 1); }
 
@@ -194,10 +264,16 @@
       if (e.key === 'Escape') closeLightbox();
     });
 
+    let scrollTimeout;
+    els.viewport.addEventListener('scroll', () => {
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(handleScrollEnd, 150);
+    });
+
     let resizeTimeout;
     window.addEventListener('resize', () => {
       clearTimeout(resizeTimeout);
-      resizeTimeout = setTimeout(positionTrack, 120);
+      resizeTimeout = setTimeout(() => scrollToIndex(state.imageIndex, false), 120);
     });
 
     if (els.menuToggle && els.siteNav) {
