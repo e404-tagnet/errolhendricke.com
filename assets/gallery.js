@@ -112,7 +112,9 @@
     const collection = getCollection();
     els.collectionName.textContent = collection.name;
     els.collectionIntro.textContent = collection.intro;
-    els.collectionCounter.textContent = `${state.imageIndex + 1} / ${collection.artworks.length}`;
+    if (els.collectionCounter) {
+      els.collectionCounter.textContent = `${state.imageIndex + 1} / ${collection.artworks.length}`;
+    }
     state.imageIndex = 0;
     renderSlides();
   }
@@ -160,6 +162,7 @@
         state.collections = data.collections;
         if (state.collections.length) {
           setCollection(0);
+          document.body.classList.add('gallery-ready');
         }
       })
       .catch(err => {
