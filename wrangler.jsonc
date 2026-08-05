@@ -3,7 +3,6 @@
   "name": "errollhendricke-com",
   "account_id": "e2316c103b9bd19094ca4e8f2d3a68f1",
   "compatibility_date": "2026-08-05",
-  "main": "src/index.ts",
   "observability": {
     "enabled": true
   },
