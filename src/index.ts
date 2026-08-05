@@ -4,11 +4,12 @@ export default {
     const response = await env.ASSETS.fetch(request);
 
     const isHtml = response.headers.get('content-type')?.includes('text/html');
-    const isAsset = url.pathname.match(/\.(jpg|jpeg|png|gif|webp|svg|css|js|ico|woff2?)$/i);
 
     const headers = new Headers(response.headers);
     if (isHtml) {
       headers.set('Cache-Control', 'no-cache, no-store, must-revalidate');
+      headers.set('CDN-Cache-Control', 'no-store');
+      headers.set('Cloudflare-CDN-Cache-Control', 'no-store');
       headers.set('Pragma', 'no-cache');
       headers.set('Expires', '0');
     }
