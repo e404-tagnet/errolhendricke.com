@@ -18,6 +18,8 @@
       text-align: center;
       padding: 2rem 4vw;
       background: var(--bg-gradient);
+      position: relative;
+      overflow: hidden;
     }
     .placeholder-title {
       font-family: var(--font-display);
@@ -47,6 +49,49 @@
       text-transform: uppercase;
       color: var(--accent-strong);
     }
+
+    .placeholder-corner {
+      position: absolute;
+      width: clamp(120px, 18vw, 260px);
+      height: clamp(160px, 24vw, 340px);
+      overflow: hidden;
+      border-radius: 4px;
+      opacity: 0;
+      transition: opacity 1.2s ease-in-out;
+      box-shadow: 0 18px 50px rgba(35, 29, 26, 0.18);
+      z-index: 1;
+    }
+    .placeholder-corner.active {
+      opacity: 0.55;
+    }
+    .placeholder-corner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .corner-tl {
+      top: clamp(1rem, 3vw, 2.5rem);
+      left: clamp(1rem, 3vw, 2.5rem);
+    }
+    .corner-br {
+      bottom: clamp(1rem, 3vw, 2.5rem);
+      right: clamp(1rem, 3vw, 2.5rem);
+    }
+
+    @media (max-width: 600px) {
+      .placeholder-corner {
+        width: clamp(90px, 26vw, 150px);
+        height: clamp(120px, 34vw, 200px);
+      }
+      .corner-tl,
+      .corner-br {
+        top: auto;
+        bottom: auto;
+      }
+      .corner-tl { top: 1rem; left: 1rem; }
+      .corner-br { bottom: 1rem; right: 1rem; }
+    }
   </style>
 </head>
 <body>
@@ -55,6 +100,64 @@
     <p class="placeholder-subtitle">Online Gallery</p>
     <div class="placeholder-gap" aria-hidden="true"></div>
     <p class="placeholder-soon">Coming Soon</p>
+
+    <div class="placeholder-corner corner-tl" data-set="tl" aria-hidden="true"></div>
+    <div class="placeholder-corner corner-br" data-set="br" aria-hidden="true"></div>
   </main>
+
+  <script>
+    (function () {
+      const libertyImages = [
+        'artworks/Liberty/1b609bf8-a5b8-4b75-9949-a54fcc9072a7.jpg',
+        'artworks/Liberty/386c5c64-fceb-47d2-9530-4bc3e9e1591b.jpg',
+        'artworks/Liberty/5123de19-f7fa-40c9-af4e-c96173b744ea.jpg',
+        'artworks/Liberty/53bf76aa-326f-4480-aa8a-ad411fca4d6d.jpg',
+        'artworks/Liberty/5d8780e7-c315-4d36-b87a-f9e561974f3d.jpg',
+        'artworks/Liberty/6de52f48-1a68-402e-8e93-0c25c15d5cad.jpg',
+        'artworks/Liberty/78a98758-54f0-4c1c-a23e-66feb91e93c7.jpg',
+        'artworks/Liberty/af2ead41-9971-4fce-88cf-b2ce87b6c4b2.jpg',
+        'artworks/Liberty/c7c603b3-9719-4a3a-b282-cd7d0d7530e7.jpg',
+        'artworks/Liberty/d400c07f-f995-4e2a-9e28-b183ed8b3ebf.jpg'
+      ];
+
+      // Split images into two rotating sets, offset by half the cycle
+      const half = Math.ceil(libertyImages.length / 2);
+      const tlSet = libertyImages.slice(0, half);
+      const brSet = libertyImages.slice(half).concat(libertyImages.slice(0, libertyImages.length % 2 ? 1 : 0));
+
+      const tlCorner = document.querySelector('.corner-tl');
+      const brCorner = document.querySelector('.corner-br');
+
+      function showImage(container, src) {
+        container.innerHTML = '';
+        const img = document.createElement('img');
+        img.src = src;
+        img.alt = '';
+        container.appendChild(img);
+        // Force reflow to restart opacity transition
+        container.classList.remove('active');
+        void container.offsetWidth;
+        container.classList.add('active');
+      }
+
+      function cycle() {
+        const tlIndex = Math.floor(Date.now() / 5000) % tlSet.length;
+        const brIndex = Math.floor((Date.now() + 2500) / 5000) % brSet.length;
+        showImage(tlCorner, tlSet[tlIndex]);
+        showImage(brCorner, brSet[brIndex]);
+      }
+
+      function init() {
+        cycle();
+        setInterval(cycle, 5000);
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+      } else {
+        init();
+      }
+    })();
+  </script>
 </body>
 </html>
