@@ -350,7 +350,7 @@ button { font-family: inherit; cursor: pointer; }
   box-sizing: border-box;
   word-wrap: break-word;
   overflow-wrap: break-word;
-  text-align: left;
+  text-align: center;
 }
 
 .artwork-description-first p,
@@ -458,7 +458,7 @@ button { font-family: inherit; cursor: pointer; }
 
 .artwork-caption {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: baseline;
   gap: 1rem;
   width: 100%;
