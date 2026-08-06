@@ -65,16 +65,18 @@
     const slide = document.createElement('div');
     slide.className = 'carousel-slide' + (isClone ? ' clone' : '');
 
-    // Split description into first sentence + remainder for expander
+    // Split description into ~4-5 visible lines + remainder for expander
     let firstPart = '';
     let restPart = '';
     let hasExpander = false;
     const rawDescription = art.description || 'Description coming soon.';
-    const sentenceMatch = rawDescription.match(/^([^.]+[.!?])(?:\s+|$)(.*)$/s);
-    if (sentenceMatch && rawDescription.length > 200) {
-      firstPart = sentenceMatch[1];
-      restPart = sentenceMatch[2].trim();
-      hasExpander = restPart.length > 0;
+    const words = rawDescription.split(/\s+/);
+    // ~80 words gives roughly 4-5 lines at the current description font size
+    const previewWordCount = 80;
+    if (words.length > previewWordCount + 5) {
+      firstPart = words.slice(0, previewWordCount).join(' ');
+      restPart = words.slice(previewWordCount).join(' ');
+      hasExpander = true;
     } else {
       firstPart = rawDescription;
     }
