@@ -1,4 +1,4 @@
-# Errol Hendrickse — Online Gallery
+# Errol Hendrickse Online Gallery
 
 Static artist portfolio and gallery site for Errol Hendrickse.
 
@@ -12,23 +12,9 @@ Static artist portfolio and gallery site for Errol Hendrickse.
 - `assets/artworks.json` — Collection and artwork metadata.
 - `artworks/` — Collection images and reference PDFs.
 
-## Local preview
-
-```bash
-cd /home/e404/Dropbox/9-PROJECTS/errollhendriscke.com
-python3 -m http.server 8765
-# Open http://localhost:8765/
-```
-
-Port `8080` is used by Open WebUI, so use `8765`.
-
-## Deploy
-
-Push to `main` on `git@github.com:e404-tagnet/errolhendricke.com.git`. GitHub Pages deploys automatically.
-
 ## Change log
 
-### 2026-08-06 — Gallery layout update (commit `5b50007`)
+### 2026-08-06: Gallery layout update (commit `5b50007`)
 - Unified artwork slide template so every artwork shows title/price caption plus a description info box. Missing descriptions use "Description coming soon." for consistency with the Portraits collection.
 - About / Red Line section redesigned as three columns: About the Artist text, four Liberty detail images (`artworks/Liberty/lb1.jpg`–`lb4.jpg`), and The Red Line & Signature text.
 - Added hand-drawn red underline under the Red Line verse: left-to-right stroke that rises and thickens/spreads toward the right, with rough edges to look human-made.
@@ -36,7 +22,7 @@ Push to `main` on `git@github.com:e404-tagnet/errolhendricke.com.git`. GitHub Pa
 - Renamed four Liberty detail images to `lb1.jpg`–`lb4.jpg` and removed unused UUID-named duplicates.
 - Added reference PDFs to `artworks/bio/` (Biography, The red line factor, monochromaticbroucher).
 
-### 2026-08-06 — Placeholder refresh and rickroll (commit `7146a96`)
+### 2026-08-06: Placeholder refresh and rickroll (commit `7146a96`)
 - Removed corner images from placeholder homepage.
 - Matched placeholder typography to gallery header: skinny uppercase letter-spaced title and larger "Online Gallery" subtitle.
 - Changed "Coming Soon" / "Enter Gallery" text into a small, discreet circular button linking to `gallery.html`.
