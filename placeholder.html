@@ -22,147 +22,170 @@
       position: relative;
       overflow: hidden;
     }
-    .placeholder-title {
+.placeholder-title {
       font-family: var(--font-display);
-      font-size: clamp(3.5rem, 12vw, 9rem);
-      font-weight: 900;
-      letter-spacing: -0.04em;
-      line-height: 0.95;
+      font-size: clamp(2.2rem, 7vw, 5rem);
+      font-weight: 300;
+      letter-spacing: 0.18em;
+      line-height: 1.05;
       color: var(--text-primary);
+      text-transform: uppercase;
+    }
+    .placeholder-title span {
+      display: block;
     }
     .placeholder-subtitle {
-      font-family: var(--font-body);
+      font-family: var(--font-display);
       font-weight: 300;
-      font-size: clamp(1rem, 2.2vw, 1.5rem);
-      letter-spacing: 0.32em;
+      font-size: clamp(0.95rem, 2.4vw, 1.55rem);
+      letter-spacing: 0.55em;
       text-transform: uppercase;
       color: var(--text-muted);
-      margin-top: 1rem;
+      margin-top: 1.2rem;
     }
     .placeholder-gap {
-      height: clamp(2.5rem, 8vh, 5rem);
+      height: clamp(3rem, 10vh, 6rem);
     }
     .placeholder-soon {
-      font-family: var(--font-display);
-      font-size: clamp(1.4rem, 3.5vw, 2.4rem);
-      font-weight: 700;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--accent-strong);
-      text-decoration: none;
+      position: fixed;
+      bottom: 1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
       border: 2px solid var(--accent-strong);
-      padding: 0.9rem 2.2rem;
-      border-radius: 100px;
-      transition: background 0.3s ease, color 0.3s ease;
+      background: transparent;
+      color: transparent;
+      overflow: hidden;
+      text-indent: -9999px;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
+      text-decoration: none;
+      opacity: 0.35;
+      z-index: 100;
     }
     .placeholder-soon:hover,
     .placeholder-soon:focus {
       background: var(--accent-strong);
-      color: var(--bg-light);
+      transform: translateX(-50%) scale(1.15);
+      outline: none;
+      opacity: 1;
+    }
+
+    .rickroll-trigger {
+      position: fixed;
+      bottom: 1rem;
+      right: 1rem;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      border: 1px solid var(--frame);
+      background: rgba(232, 228, 222, 0.6);
+      color: transparent;
+      overflow: hidden;
+      text-indent: -9999px;
+      cursor: pointer;
+      opacity: 0.2;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      z-index: 100;
+    }
+    .rickroll-trigger:hover,
+    .rickroll-trigger:focus {
+      opacity: 0.85;
+      transform: scale(1.15);
       outline: none;
     }
 
-    .placeholder-corner {
+    .rickroll-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(35, 29, 26, 0.92);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+    .rickroll-overlay.active {
+      display: flex;
+    }
+    .rickroll-overlay iframe {
+      width: min(90vw, 800px);
+      height: min(56.25vw, 450px);
+      max-height: 80vh;
+      border: none;
+      border-radius: 6px;
+      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.6);
+    }
+    .rickroll-close {
       position: absolute;
-      width: clamp(120px, 18vw, 260px);
-      height: clamp(160px, 24vw, 340px);
-      overflow: hidden;
-      border-radius: 4px;
-      opacity: 0;
-      transition: opacity 1.2s ease-in-out;
-      box-shadow: 0 18px 50px rgba(35, 29, 26, 0.18);
-      z-index: 1;
-      background: var(--frame-dark);
-    }
-    .placeholder-corner.active {
-      opacity: 0.55;
-    }
-    .placeholder-corner img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-    .corner-tl {
-      top: clamp(1rem, 3vw, 2.5rem);
-      left: clamp(1rem, 3vw, 2.5rem);
-    }
-    .corner-br {
-      bottom: clamp(1rem, 3vw, 2.5rem);
-      right: clamp(1rem, 3vw, 2.5rem);
+      top: 1.5rem;
+      right: 1.5rem;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.35);
+      background: transparent;
+      color: #fff;
+      font-size: 1.4rem;
+      line-height: 42px;
+      text-align: center;
+      cursor: pointer;
     }
 
     @media (max-width: 600px) {
-      .placeholder-corner {
-        width: clamp(90px, 26vw, 150px);
-        height: clamp(120px, 34vw, 200px);
+      .placeholder-title {
+        font-size: clamp(2rem, 12vw, 4.5rem);
+        letter-spacing: 0.18em;
       }
-      .corner-tl,
-      .corner-br {
-        top: auto;
-        bottom: auto;
+      .placeholder-subtitle {
+        font-size: clamp(1rem, 4vw, 1.4rem);
       }
-      .corner-tl { top: 1rem; left: 1rem; }
-      .corner-br { bottom: 1rem; right: 1rem; }
     }
   </style>
 </head>
 <body>
   <main class="placeholder-page">
-    <h1 class="placeholder-title">Errol Hendrickse</h1>
+    <h1 class="placeholder-title"><span>Errol</span><span>Hendrickse</span></h1>
     <p class="placeholder-subtitle">Online Gallery</p>
-    <a href="gallery.html" class="placeholder-soon">Enter Gallery</a>
-
-    <div class="placeholder-corner corner-tl" data-set="tl" aria-hidden="true"></div>
-    <div class="placeholder-corner corner-br" data-set="br" aria-hidden="true"></div>
+    <a href="gallery.html" class="placeholder-soon" aria-label="Enter gallery">Enter Gallery</a>
   </main>
+
+  <button class="rickroll-trigger" aria-label="Secret" type="button">Rickroll</button>
+
+  <div class="rickroll-overlay" id="rickrollOverlay" aria-hidden="true">
+    <button class="rickroll-close" type="button" aria-label="Close">×</button>
+    <iframe title="Rickroll" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+  </div>
 
   <script>
     (function () {
-      const libertyImages = [
-        'artworks/Liberty/lb1.jpg',
-        'artworks/Liberty/lb2.jpg',
-        'artworks/Liberty/lb3.jpg',
-        'artworks/Liberty/lb4.jpg'
-      ];
+      const trigger = document.querySelector('.rickroll-trigger');
+      const overlay = document.getElementById('rickrollOverlay');
+      const close = overlay.querySelector('.rickroll-close');
+      const iframe = overlay.querySelector('iframe');
+      const videoUrl = 'https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&rel=0';
 
-      // Split images into two rotating sets, offset by half the cycle
-      const half = Math.ceil(libertyImages.length / 2);
-      const tlSet = libertyImages.slice(0, half);
-      const brSet = libertyImages.slice(half).concat(libertyImages.slice(0, libertyImages.length % 2 ? 1 : 0));
-
-      const tlCorner = document.querySelector('.corner-tl');
-      const brCorner = document.querySelector('.corner-br');
-
-      function showImage(container, src) {
-        container.innerHTML = '';
-        const img = document.createElement('img');
-        img.src = src;
-        img.alt = '';
-        container.appendChild(img);
-        // Force reflow to restart opacity transition
-        container.classList.remove('active');
-        void container.offsetWidth;
-        container.classList.add('active');
+      function open() {
+        iframe.src = videoUrl;
+        overlay.classList.add('active');
+        overlay.setAttribute('aria-hidden', 'false');
       }
 
-      function cycle() {
-        const tlIndex = Math.floor(Date.now() / 5000) % tlSet.length;
-        const brIndex = Math.floor((Date.now() + 2500) / 5000) % brSet.length;
-        showImage(tlCorner, tlSet[tlIndex]);
-        showImage(brCorner, brSet[brIndex]);
+      function closeOverlay() {
+        overlay.classList.remove('active');
+        overlay.setAttribute('aria-hidden', 'true');
+        iframe.src = '';
       }
 
-      function init() {
-        cycle();
-        setInterval(cycle, 5000);
-      }
-
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', init);
-      } else {
-        init();
-      }
+      trigger.addEventListener('click', open);
+      close.addEventListener('click', closeOverlay);
+      overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) closeOverlay();
+      });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && overlay.classList.contains('active')) closeOverlay();
+      });
     })();
   </script>
 </body>

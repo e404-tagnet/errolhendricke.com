@@ -693,6 +693,67 @@ button { font-family: inherit; cursor: pointer; }
   font-size: 0.85rem;
   color: var(--text-muted);
   border-top: 1px solid var(--frame);
+  background: var(--bg-secondary);
+}
+
+.rickroll-trigger {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid var(--frame);
+  background: rgba(232, 228, 222, 0.6);
+  color: transparent;
+  overflow: hidden;
+  text-indent: -9999px;
+  cursor: pointer;
+  opacity: 0.2;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 100;
+}
+.rickroll-trigger:hover,
+.rickroll-trigger:focus {
+  opacity: 0.85;
+  transform: scale(1.15);
+  outline: none;
+}
+
+.rickroll-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(35, 29, 26, 0.92);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+.rickroll-overlay.active {
+  display: flex;
+}
+.rickroll-overlay iframe {
+  width: min(90vw, 800px);
+  height: min(56.25vw, 450px);
+  max-height: 80vh;
+  border: none;
+  border-radius: 6px;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.6);
+}
+.rickroll-close {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.35);
+  background: transparent;
+  color: #fff;
+  font-size: 1.4rem;
+  line-height: 42px;
+  text-align: center;
+  cursor: pointer;
 }
 
 /* Thumbnail strip */
