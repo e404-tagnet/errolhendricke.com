@@ -64,6 +64,27 @@
   function createSlide(art, collection, isClone) {
     const slide = document.createElement('div');
     slide.className = 'carousel-slide' + (isClone ? ' clone' : '');
+
+    // Split description into first paragraph + remainder for expander
+    let firstPara = '';
+    let restParas = '';
+    let hasExpander = false;
+    const rawDescription = art.description || 'Description coming soon.';
+    const paras = rawDescription.split(/\n+/).filter(p => p.trim());
+    if (paras.length > 1) {
+      firstPara = paras[0];
+      restParas = paras.slice(1).join('\n\n');
+      hasExpander = true;
+    } else {
+      firstPara = rawDescription;
+    }
+
+    const expanderHtml = hasExpander
+      ? `<div class="artwork-description-fade" aria-hidden="false"></div>
+         <button class="artwork-continue" type="button" aria-expanded="false">Continue reading</button>
+         <div class="artwork-description-rest" aria-hidden="true"><p>${restParas.replace(/\n\n/g, '</p><p>')}</p></div>`
+      : '';
+
     slide.innerHTML = `
       <figure class="artwork-frame">
         <img src="${collection.folder}/${art.file}" alt="${art.title}" loading="lazy" />
@@ -72,13 +93,35 @@
           <span class="artwork-price">${art.price}</span>
         </figcaption>
       </figure>
-      <div class="artwork-info"><p>${art.description || 'Description coming soon.'}</p></div>
+      <div class="artwork-info">
+        <div class="artwork-description-first"><p>${firstPara}</p></div>
+        ${expanderHtml}
+      </div>
     `;
+
     const img = slide.querySelector('img');
     img.addEventListener('click', (e) => {
       e.stopPropagation();
       openLightbox(`${collection.folder}/${art.file}`, art.title);
     });
+
+    const continueBtn = slide.querySelector('.artwork-continue');
+    const fadeEl = slide.querySelector('.artwork-description-fade');
+    const restEl = slide.querySelector('.artwork-description-rest');
+    if (continueBtn && restEl) {
+      continueBtn.addEventListener('click', () => {
+        const expanded = continueBtn.getAttribute('aria-expanded') === 'true';
+        continueBtn.setAttribute('aria-expanded', String(!expanded));
+        restEl.setAttribute('aria-hidden', String(expanded));
+        restEl.classList.toggle('open', !expanded);
+        if (fadeEl) fadeEl.classList.toggle('hidden', !expanded);
+        continueBtn.textContent = expanded ? 'Continue reading' : 'Show less';
+        if (!expanded) {
+          setTimeout(() => continueBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 50);
+        }
+      });
+    }
+
     return slide;
   }
 
