@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Errol Hendrickse — Art Gallery</title>
-  <link rel="stylesheet" href="assets/style.css" />
+  <link rel="stylesheet" href="assets/style.css?v=13" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@400;500;600;700;800;900&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet" />
@@ -57,14 +57,28 @@
       </div>
     </section>
 
-    <section id="about" class="about-section">
-      <div class="about-image">
-        <img src="artworks/bio/artist-placeholder.jpg" alt="Errol Hendrickse" loading="lazy" onerror="this.src='assets/placeholder-bio.svg'" />
-      </div>
+    <section id="about-red-line" class="about-redline-section" aria-labelledby="about-title">
       <div class="about-text">
-        <h2>About the Artist</h2>
-        <p>Placeholder paragraph one: a short biography of Errol Hendrickse, covering background, influences, and approach to painting.</p>
-        <p>Placeholder paragraph two: statement on current practice, themes explored, and what drives the work.</p>
+        <h2 id="about-title">About the Artist</h2>
+        <p>Errol Hendrickse is a British contemporary artist whose work explores the intersections of memory, identity, psychological resilience and the human condition. Through expressive abstraction and figurative painting, he investigates the fragile space between what is seen and what is experienced, creating paintings that speak to both personal and universal narratives.</p>
+        <p>Originally trained in Textile Design in the early 1990s, Hendrickse developed an early appreciation for structure, rhythm and surface. Following many years working as a psychotherapist, he returned to painting with a renewed understanding of human emotion and the complexities of psychological experience. Working predominantly in oil, charcoal and mixed media, he builds paintings through layering, erasure, reconstruction and mark-making, allowing every surface to retain the history of its making.</p>
+        <p>His abstract works are characterised by sweeping gestural marks and dynamic compositions that evoke emotional states and the invisible architecture of thought and memory. Alongside these, his monochromatic portraits explore themes of masculinity, vulnerability and emotional silence, while his recent figurative paintings examine identity, cultural heritage and belonging.</p>
+      </div>
+      <div class="about-redline-divider" aria-hidden="true"></div>
+      <div class="red-line-images" aria-hidden="true">
+        <img src="artworks/Liberty/lb1.jpg" alt="" loading="lazy" />
+        <img src="artworks/Liberty/lb2.jpg" alt="" loading="lazy" />
+        <img src="artworks/Liberty/lb3.jpg" alt="" loading="lazy" />
+        <img src="artworks/Liberty/lb4.jpg" alt="" loading="lazy" />
+      </div>
+      <div class="about-redline-divider" aria-hidden="true"></div>
+      <div class="red-line-text">
+        <h2>The Red Line &amp; Signature</h2>
+        <p>A defining element throughout Errol Hendrickse's work is the recurring presence of the red line, completed by his distinctive red signature. Neither is used as decoration. Together they form a continuous visual language that runs throughout the collection.</p>
+        <p>The red line appears in many forms, sometimes as a single uninterrupted gesture, sometimes fragmented, almost disappearing beneath layers of paint before resurfacing elsewhere. It is not intended to represent one fixed idea. Instead, it speaks of the invisible threads that connect us: memory, resilience, vulnerability, identity and the enduring human capacity to survive.</p>
+        <p>The red signature completes that journey. Rather than existing outside the painting as a mark of ownership, the signature is treated as the final red gesture. It belongs to the same visual language as the red line, becoming its conclusion rather than its addition.</p>
+        <p class="red-line-verse">The red line begins the conversation.<br>The red signature brings it to rest.</p>
+        <div class="red-line-closing-rule" aria-hidden="true"></div>
       </div>
     </section>
 
@@ -81,6 +95,6 @@
     <p>© <span id="year"></span> Errol Hendrickse. All rights reserved.</p>
   </footer>
 
-  <script src="assets/gallery.js"></script>
+  <script src="assets/gallery.js?v=4"></script>
 </body>
 </html>

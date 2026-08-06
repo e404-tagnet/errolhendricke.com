@@ -72,6 +72,7 @@
           <span class="artwork-price">${art.price}</span>
         </figcaption>
       </figure>
+      <div class="artwork-info"><p>${art.description || 'Description coming soon.'}</p></div>
     `;
     const img = slide.querySelector('img');
     img.addEventListener('click', (e) => {
