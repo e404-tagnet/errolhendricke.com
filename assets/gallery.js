@@ -65,24 +65,24 @@
     const slide = document.createElement('div');
     slide.className = 'carousel-slide' + (isClone ? ' clone' : '');
 
-    // Split description into first paragraph + remainder for expander
-    let firstPara = '';
-    let restParas = '';
+    // Split description into first sentence + remainder for expander
+    let firstPart = '';
+    let restPart = '';
     let hasExpander = false;
     const rawDescription = art.description || 'Description coming soon.';
-    const paras = rawDescription.split(/\n+/).filter(p => p.trim());
-    if (paras.length > 1) {
-      firstPara = paras[0];
-      restParas = paras.slice(1).join('\n\n');
-      hasExpander = true;
+    const sentenceMatch = rawDescription.match(/^([^.]+[.!?])(?:\s+|$)(.*)$/s);
+    if (sentenceMatch && rawDescription.length > 200) {
+      firstPart = sentenceMatch[1];
+      restPart = sentenceMatch[2].trim();
+      hasExpander = restPart.length > 0;
     } else {
-      firstPara = rawDescription;
+      firstPart = rawDescription;
     }
 
     const expanderHtml = hasExpander
       ? `<div class="artwork-description-fade" aria-hidden="false"></div>
          <button class="artwork-continue" type="button" aria-expanded="false">Continue reading</button>
-         <div class="artwork-description-rest" aria-hidden="true"><p>${restParas.replace(/\n\n/g, '</p><p>')}</p></div>`
+         <div class="artwork-description-rest" aria-hidden="true"><p>${restPart}</p></div>`
       : '';
 
     slide.innerHTML = `
@@ -94,7 +94,7 @@
         </figcaption>
       </figure>
       <div class="artwork-info">
-        <div class="artwork-description-first"><p>${firstPara}</p></div>
+        <div class="artwork-description-first"><p>${firstPart}</p></div>
         ${expanderHtml}
       </div>
     `;

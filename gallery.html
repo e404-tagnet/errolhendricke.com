@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Errol Hendrickse — Art Gallery</title>
-  <link rel="stylesheet" href="assets/style.css?v=16" />
+  <link rel="stylesheet" href="assets/style.css?v=17" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@400;500;600;700;800;900&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet" />
@@ -23,36 +23,35 @@
 
   <main>
     <section id="collections" class="collections-section" aria-label="Art collections">
-      <div class="collection-hero">
-        <div class="collection-hero-inner">
-          <h2 id="collection-name" class="collection-name">Collection One</h2>
-          <p id="collection-intro" class="collection-intro">Placeholder introduction for the first collection. Replace with the artist’s short description.</p>
-          <div class="collection-controls">
-            <button id="prev-collection" class="control-btn arrow-only" aria-label="Previous collection">←</button>
-            <button id="next-collection" class="control-btn arrow-only" aria-label="Next collection">→</button>
-          </div>
+      <div class="collection-sidebar">
+        <h2 id="collection-name" class="collection-name">Collection One</h2>
+        <div class="collection-controls">
+          <button id="prev-collection" class="control-btn arrow-only" aria-label="Previous collection">←</button>
+          <button id="next-collection" class="control-btn arrow-only" aria-label="Next collection">→</button>
         </div>
-      </div>
 
-      <div class="collection-meta">
         <div class="collection-thumbs" id="collection-thumbs" aria-label="Collection artworks">
           <!-- thumbnails injected by JS -->
         </div>
       </div>
 
-      <div class="gallery-stage">
-        <button id="prev-image" class="image-nav image-nav-left" aria-label="Previous artwork">‹</button>
+      <div class="collection-main">
+        <p id="collection-intro" class="collection-intro">Placeholder introduction for the first collection. Replace with the artist’s short description.</p>
 
-        <div class="carousel-viewport">
-          <div class="carousel-track" id="carousel-track">
-            <!-- slides injected by JS -->
+        <div class="gallery-stage">
+          <button id="prev-image" class="image-nav image-nav-left" aria-label="Previous artwork">‹</button>
+
+          <div class="carousel-viewport">
+            <div class="carousel-track" id="carousel-track">
+              <!-- slides injected by JS -->
+            </div>
           </div>
+
+          <button id="next-image" class="image-nav image-nav-right" aria-label="Next artwork">›</button>
         </div>
 
-        <button id="next-image" class="image-nav image-nav-right" aria-label="Next artwork">›</button>
+        <div class="gallery-dots" id="gallery-dots" aria-label="Artwork pagination"></div>
       </div>
-
-      <div class="gallery-dots" id="gallery-dots" aria-label="Artwork pagination"></div>
 
       <div class="lightbox" id="lightbox" aria-hidden="true">
         <button class="lightbox-close" id="lightbox-close" aria-label="Close preview">×</button>
@@ -72,7 +71,7 @@
     <iframe title="Rickroll" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
   </div>
 
-  <script src="assets/gallery.js?v=6"></script>
+  <script src="assets/gallery.js?v=7"></script>
   <script src="assets/rickroll.js"></script>
 </body>
 </html>
