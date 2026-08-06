@@ -36,6 +36,12 @@ Push to `main` on `git@github.com:e404-tagnet/errolhendricke.com.git`. GitHub Pa
 - Renamed four Liberty detail images to `lb1.jpg`–`lb4.jpg` and removed unused UUID-named duplicates.
 - Added reference PDFs to `artworks/bio/` (Biography, The red line factor, monochromaticbroucher).
 
+### 2026-08-06 — Placeholder refresh and rickroll (commit `7146a96`)
+- Removed corner images from placeholder homepage.
+- Matched placeholder typography to gallery header: skinny uppercase letter-spaced title and larger "Online Gallery" subtitle.
+- Changed "Coming Soon" / "Enter Gallery" text into a small, discreet circular button linking to `gallery.html`.
+- Added a hidden rickroll trigger button and overlay to both `index.html`/`placeholder.html` and `gallery.html`.
+
 ## Outstanding / next steps
 
 - Replace placeholder collection intros for Abstraction, Form, and Tribal with artist-written text.
