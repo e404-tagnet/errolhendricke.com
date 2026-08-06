@@ -21,6 +21,13 @@
       background: var(--bg-gradient);
       position: relative;
       overflow: hidden;
+      opacity: 1;
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .placeholder-page.is-leaving {
+      opacity: 0;
+      transform: scale(0.985);
+      pointer-events: none;
     }
 .placeholder-title {
       font-family: var(--font-display);
@@ -186,6 +193,19 @@
       document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && overlay.classList.contains('active')) closeOverlay();
       });
+
+      // Smooth transition on "Enter Gallery" link
+      const enterLink = document.querySelector('.placeholder-soon');
+      if (enterLink) {
+        enterLink.addEventListener('click', (e) => {
+          e.preventDefault();
+          document.body.classList.add('is-leaving');
+          document.querySelector('.placeholder-page').classList.add('is-leaving');
+          setTimeout(() => {
+            window.location.href = enterLink.href;
+          }, 750);
+        });
+      }
     })();
   </script>
 </body>

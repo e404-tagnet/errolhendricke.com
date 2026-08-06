@@ -1,5 +1,5 @@
 # Errol Hendrickse Online Gallery
-
+ 
 Static artist portfolio and gallery site for Errol Hendrickse.
 
 ## Project structure
@@ -27,6 +27,10 @@ Static artist portfolio and gallery site for Errol Hendrickse.
 - Matched placeholder typography to gallery header: skinny uppercase letter-spaced title and larger "Online Gallery" subtitle.
 - Changed "Coming Soon" / "Enter Gallery" text into a small, discreet circular button linking to `gallery.html`.
 - Added a hidden rickroll trigger button and overlay to both `index.html`/`placeholder.html` and `gallery.html`.
+
+### 2026-08-06: Description text legibility update
+- Changed artwork description text from light frame colour to dark frame colour so it reads clearly on the greige page gradient.
+- Bumped `style.css` cache buster to `v=14` in `index.html` and `gallery.html`.
 
 ## Outstanding / next steps
 
