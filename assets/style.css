@@ -283,6 +283,7 @@ button { font-family: inherit; cursor: pointer; }
   flex-direction: column;
   align-items: center;
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 .carousel-viewport::after {
@@ -405,10 +406,8 @@ button { font-family: inherit; cursor: pointer; }
 }
 
 .artwork-continue {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  margin-top: 0.6rem;
+  display: block;
+  margin: 0.8rem auto 0;
   padding: 0.35rem 0.85rem;
   background: transparent;
   border: 1px solid var(--frame);
@@ -419,6 +418,7 @@ button { font-family: inherit; cursor: pointer; }
   font-weight: 500;
   cursor: pointer;
   transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  clear: both;
 }
 
 .artwork-continue:hover,
@@ -432,6 +432,7 @@ button { font-family: inherit; cursor: pointer; }
   content: '↓';
   font-size: 0.75rem;
   transition: transform 0.2s ease;
+  margin-left: 0.35rem;
 }
 
 .artwork-continue[aria-expanded="true"]::after {
@@ -1061,6 +1062,12 @@ button { font-family: inherit; cursor: pointer; }
     min-width: 52vw;
     max-width: 72vw;
   }
+
+  .artwork-info,
+  .artwork-description {
+    width: 100%;
+    max-width: min(52vw, 720px);
+  }
 }
 
 /* Tablet */
@@ -1099,6 +1106,12 @@ button { font-family: inherit; cursor: pointer; }
   .artwork-info {
     min-width: 60vw;
     max-width: 82vw;
+  }
+
+  .artwork-info,
+  .artwork-description {
+    width: 100%;
+    max-width: min(60vw, 680px);
   }
 }
 
@@ -1188,14 +1201,17 @@ button { font-family: inherit; cursor: pointer; }
     max-width: min(68vw, 420px);
   }
   .artwork-info {
-    min-width: auto;
-    max-width: 82vw;
+    min-width: 52vw;
+    max-width: 72vw;
   }
-  .artwork-description-rest.open {
-    max-height: 800px;
+
+  .artwork-info,
+  .artwork-description {
+    width: 100%;
+    max-width: min(52vw, 720px);
   }
-  .contact-card { padding: 1.25rem; }
 }
+
 @media (min-width: 801px) {
   .image-nav-left { justify-self: end; }
   .image-nav-right { justify-self: start; }
