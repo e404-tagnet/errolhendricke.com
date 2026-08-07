@@ -353,6 +353,25 @@ button { font-family: inherit; cursor: pointer; }
   text-align: center;
 }
 
+.artwork-info,
+.artwork-description {
+  max-width: min(66vw, 100%);
+}
+
+@media (min-width: 801px) {
+  .artwork-info,
+  .artwork-description {
+    max-width: min(44vw, 760px);
+  }
+}
+
+@media (min-width: 1280px) {
+  .artwork-info,
+  .artwork-description {
+    max-width: min(38vw, 860px);
+  }
+}
+
 .artwork-description-first p,
 .artwork-description-rest p {
   margin-bottom: 0.75rem;
@@ -942,7 +961,6 @@ button { font-family: inherit; cursor: pointer; }
 }
 .artwork-description {
   width: 100%;
-  max-width: min(40vw, 540px);
   margin-top: 1.25rem;
   padding-top: 0.85rem;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -953,6 +971,7 @@ button { font-family: inherit; cursor: pointer; }
   line-height: 1.6;
   position: relative;
   z-index: 2;
+  box-sizing: border-box;
 }
 
 .lightbox {
