@@ -704,7 +704,7 @@ button { font-family: inherit; cursor: pointer; }
 
 .red-line-images img {
   width: 100%;
-  max-width: 160px;
+  max-width: 200px;
   aspect-ratio: 3 / 4;
   object-fit: cover;
   border-radius: 3px;
