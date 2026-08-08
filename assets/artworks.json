@@ -72,16 +72,40 @@
       ]
     },
     {
-      "id": "collection-portraits",
-      "name": "Portraits",
+      "id": "collection-monochromatic",
+      "name": "Monochromatic",
       "intro": "This collection explores the often unseen landscape of male mental health: isolation, vulnerability, emotional suppression and the gradual erosion of identity. The figures are psychological rather than biographical. Faces emerge from and disappear into darkness, features scratched, obscured and fragmented, reflecting the difficulty of expressing an internal experience that may remain invisible to those looking from the outside. Working predominantly in monochrome, repeated marks, abrasion and exposed surfaces create a sense of lives that have been weathered rather than simply depicted. Small interventions of red recur throughout like a thread, a wound, a pulse, perhaps even evidence that something remains alive beneath the silence.",
       "folder": "artworks/collection-portraits",
       "artworks": [
+        {
+          "file": "a7776af2-5e3d-4be7-a432-e69318180856.JPG",
+          "title": "The Weight of Being Seen",
+          "price": "Price on request",
+          "description": "A figure emerges from darkness, yet remains partially consumed by it. His face carries the exhaustion of someone who has endured more than he has been able to articulate. The work explores the particular loneliness of being visibly present while feeling psychologically unseen. The eyes look outward, searching beyond the frame, while the body appears to retreat into shadow. A thin red line traces the edge of the figure. Throughout the mental-health series, this line represents what remains: wound, nerve, lifeline and continuity. Here, it is fragile but unmistakably present. He has not disappeared. He is still here."
+        },
+        {
+          "file": "6de52f48-1a68-402e-8e93-0c25c15d5cad.JPG",
+          "title": "What Remains",
+          "price": "Price on request",
+          "description": "A solitary figure turns towards the light, while much of him remains absorbed by darkness. His expression is neither dramatic nor defeated; it carries the quieter weight of endurance. The work explores the psychological aftermath of prolonged distress: the point at which survival itself becomes exhausting. The face is marked and fragmented, yet the figure remains recognisably present. The red line appears again, tracing the vulnerable edge of the head and neck. Across the mental-health series it becomes a continuous thread \u2014 wound, pulse, connection and life. It is the part that refuses to disappear. What Remains is not a portrait of defeat. It is about the fragile persistence of self when almost everything by which we once defined ourselves has been stripped away. Something remains. Sometimes, that is enough."
+        },
+        {
+          "file": "bd20e0f7-b106-4543-bbf5-27e023bfcf88.JPG",
+          "title": "Still Here",
+          "price": "Price on request",
+          "description": "The figure appears caught between presence and disappearance. Parts of the face are sharply visible while others seem to be absorbed into the darkness surrounding him. Still Here explores the exhaustion of enduring mental distress when identity, confidence and connection have begun to erode. There is fear in the face, but also consciousness: he has not disappeared. The red appears only at the edges, almost outside the figure itself. Throughout the series it represents the continuing thread of self \u2014 sometimes strong, sometimes fractured, sometimes barely accessible. This is not an image of recovery neatly completed. It is the more difficult moment before that: remaining when remaining itself has become an act of resistance. Still wounded. Still uncertain. Still here."
+        },
         {
           "file": "220e1f0a-fd2e-422f-a239-eb1100946f71.JPG",
           "title": "Under Judgement",
           "price": "Price on request",
           "description": "There are moments when a decision made by others begins to eclipse the truth you know about yourself. Long before it changes your circumstances, it changes the way you stand in the world. Under Judgement explores that burden. The figure is not broken by a single event, but by the cumulative weight of being assessed, categorised and reduced to a finding rather than recognised as a human being. His expression carries resignation, disbelief and quiet endurance in equal measure. The red line descends from the throat \u2014 the place from which we speak, defend ourselves and tell our stories. Throughout the series it represents the fragile thread of identity. Here it suggests a voice that has been constrained but not extinguished. This is a portrait of what happens when judgement becomes heavier than understanding. Every verdict reaches a person before it reaches a file."
+        },
+        {
+          "file": "9be687ef-cc97-49ab-a6c0-fda80fe0451b.JPG",
+          "title": "Silenced",
+          "price": "Price on request",
+          "description": "There are wounds that cannot be seen. There are voices that are never heard. In Silenced, the face emerges from darkness while the mouth disappears beneath layers of paint. The figure remains present, watchful and fully human, yet deprived of the ability to speak for himself. It is an exploration of what happens when identity becomes overshadowed by judgement, assumption or the narratives of others. The red line interrupts the monochrome like a pulse beneath the skin. Throughout the collection it represents the enduring thread of self \u2014 life, dignity and humanity that persists even when a person's voice has been diminished. This work is not about surrender. It is about the quiet violence of not being heard, and the resilience required to remain present despite it. The greatest loss is not finding your voice. It is discovering that no one is willing to listen."
         },
         {
           "file": "2bd3b74b-3ace-4e97-9715-9e1609f893cf.JPG",
@@ -94,30 +118,6 @@
           "title": "The Fracturing of Self",
           "price": "Price on request",
           "description": "Trauma rarely arrives as a single event. It dismantles identity in stages. The Fracturing of Self explores what happens when a person becomes separated from the life they once knew. Professional identity, personal relationships, confidence and belonging begin to exist as disconnected parts rather than a coherent whole. The divisions running through the composition are not merely compositional devices \u2014 they speak to the psychological fragmentation that can follow prolonged trauma, grief and public judgement. Despite these fractures, the eyes remain fixed on the viewer. They become the constant that survives every loss. The recurring red line appears once more as the thread that binds the collection together. It represents life, dignity and the irreducible humanity that persists beneath shame, silence and adversity. However fractured the individual becomes, that thread endures. This triptych is ultimately about integration. Healing is not returning to who we once were, but learning to live with every fractured piece without allowing any single wound to define the whole. Identity can be fractured. It can be questioned. It can be stripped of titles, status and certainty. But it can never be entirely erased."
-        },
-        {
-          "file": "6de52f48-1a68-402e-8e93-0c25c15d5cad.JPG",
-          "title": "What Remains",
-          "price": "Price on request",
-          "description": "A solitary figure turns towards the light, while much of him remains absorbed by darkness. His expression is neither dramatic nor defeated; it carries the quieter weight of endurance. The work explores the psychological aftermath of prolonged distress: the point at which survival itself becomes exhausting. The face is marked and fragmented, yet the figure remains recognisably present. The red line appears again, tracing the vulnerable edge of the head and neck. Across the mental-health series it becomes a continuous thread \u2014 wound, pulse, connection and life. It is the part that refuses to disappear. What Remains is not a portrait of defeat. It is about the fragile persistence of self when almost everything by which we once defined ourselves has been stripped away. Something remains. Sometimes, that is enough."
-        },
-        {
-          "file": "9be687ef-cc97-49ab-a6c0-fda80fe0451b.JPG",
-          "title": "Silenced",
-          "price": "Price on request",
-          "description": "There are wounds that cannot be seen. There are voices that are never heard. In Silenced, the face emerges from darkness while the mouth disappears beneath layers of paint. The figure remains present, watchful and fully human, yet deprived of the ability to speak for himself. It is an exploration of what happens when identity becomes overshadowed by judgement, assumption or the narratives of others. The red line interrupts the monochrome like a pulse beneath the skin. Throughout the collection it represents the enduring thread of self \u2014 life, dignity and humanity that persists even when a person's voice has been diminished. This work is not about surrender. It is about the quiet violence of not being heard, and the resilience required to remain present despite it. The greatest loss is not finding your voice. It is discovering that no one is willing to listen."
-        },
-        {
-          "file": "a7776af2-5e3d-4be7-a432-e69318180856.JPG",
-          "title": "The Weight of Being Seen",
-          "price": "Price on request",
-          "description": "A figure emerges from darkness, yet remains partially consumed by it. His face carries the exhaustion of someone who has endured more than he has been able to articulate. The work explores the particular loneliness of being visibly present while feeling psychologically unseen. The eyes look outward, searching beyond the frame, while the body appears to retreat into shadow. A thin red line traces the edge of the figure. Throughout the mental-health series, this line represents what remains: wound, nerve, lifeline and continuity. Here, it is fragile but unmistakably present. He has not disappeared. He is still here."
-        },
-        {
-          "file": "bd20e0f7-b106-4543-bbf5-27e023bfcf88.JPG",
-          "title": "Still Here",
-          "price": "Price on request",
-          "description": "The figure appears caught between presence and disappearance. Parts of the face are sharply visible while others seem to be absorbed into the darkness surrounding him. Still Here explores the exhaustion of enduring mental distress when identity, confidence and connection have begun to erode. There is fear in the face, but also consciousness: he has not disappeared. The red appears only at the edges, almost outside the figure itself. Throughout the series it represents the continuing thread of self \u2014 sometimes strong, sometimes fractured, sometimes barely accessible. This is not an image of recovery neatly completed. It is the more difficult moment before that: remaining when remaining itself has become an act of resistance. Still wounded. Still uncertain. Still here."
         }
       ]
     },
