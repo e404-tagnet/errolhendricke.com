@@ -83,8 +83,8 @@
 
     const expanderHtml = hasExpander
       ? `<div class="artwork-description-fade" aria-hidden="false"></div>
-         <button class="artwork-continue" type="button" aria-expanded="false">Continue reading</button>
-         <div class="artwork-description-rest" aria-hidden="true"><p>${restPart}</p></div>`
+         <button class="artwork-continue artwork-continue-more" type="button" aria-expanded="false">Continue reading</button>
+         <div class="artwork-description-rest" aria-hidden="true"><p>${restPart}</p><button class="artwork-continue artwork-continue-less" type="button">Show less</button></div>`
       : '';
 
     slide.innerHTML = `
@@ -107,20 +107,33 @@
       openLightbox(`${collection.folder}/${art.file}`, art.title);
     });
 
-    const continueBtn = slide.querySelector('.artwork-continue');
+    const continueBtn = slide.querySelector('.artwork-continue-more');
+    const continueLessBtn = slide.querySelector('.artwork-continue-less');
     const fadeEl = slide.querySelector('.artwork-description-fade');
     const restEl = slide.querySelector('.artwork-description-rest');
     if (continueBtn && restEl) {
       continueBtn.addEventListener('click', () => {
-        const expanded = continueBtn.getAttribute('aria-expanded') === 'true';
-        continueBtn.setAttribute('aria-expanded', String(!expanded));
-        restEl.setAttribute('aria-hidden', String(expanded));
-        restEl.classList.toggle('open', !expanded);
-        if (fadeEl) fadeEl.classList.toggle('hidden', !expanded);
-        continueBtn.textContent = expanded ? 'Continue reading' : 'Show less';
-        if (!expanded) {
-          setTimeout(() => continueBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 50);
+        continueBtn.setAttribute('aria-expanded', 'true');
+        restEl.setAttribute('aria-hidden', 'false');
+        restEl.classList.add('open');
+        if (fadeEl) fadeEl.classList.add('hidden');
+        continueBtn.classList.add('hidden');
+        setTimeout(() => {
+          const lessBtn = restEl.querySelector('.artwork-continue-less');
+          if (lessBtn) lessBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }, 50);
+      });
+    }
+    if (continueLessBtn && restEl) {
+      continueLessBtn.addEventListener('click', () => {
+        if (continueBtn) {
+          continueBtn.setAttribute('aria-expanded', 'false');
+          continueBtn.classList.remove('hidden');
         }
+        restEl.setAttribute('aria-hidden', 'true');
+        restEl.classList.remove('open');
+        if (fadeEl) fadeEl.classList.remove('hidden');
+        setTimeout(() => continueBtn && continueBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 50);
       });
     }
 

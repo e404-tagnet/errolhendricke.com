@@ -357,19 +357,28 @@ button { font-family: inherit; cursor: pointer; }
 .artwork-info,
 .artwork-description {
   max-width: min(66vw, 100%);
+  margin-left: auto;
+  margin-right: auto;
 }
 
 @media (min-width: 801px) {
   .artwork-info,
   .artwork-description {
-    max-width: min(44vw, 760px);
+    max-width: min(38vw, 680px);
   }
 }
 
 @media (min-width: 1280px) {
   .artwork-info,
   .artwork-description {
-    max-width: min(38vw, 860px);
+    max-width: min(34vw, 640px);
+  }
+}
+
+@media (min-width: 1600px) {
+  .artwork-info,
+  .artwork-description {
+    max-width: min(30vw, 600px);
   }
 }
 
@@ -387,8 +396,13 @@ button { font-family: inherit; cursor: pointer; }
 }
 
 .artwork-description-rest.open {
-  max-height: 600px;
+  max-height: 800px;
   opacity: 1;
+}
+
+.artwork-description-rest .artwork-continue {
+  margin-top: 0.8rem;
+  margin-bottom: 0;
 }
 
 .artwork-description-fade {
@@ -421,6 +435,15 @@ button { font-family: inherit; cursor: pointer; }
   clear: both;
 }
 
+.artwork-continue.hidden {
+  display: none;
+}
+
+.artwork-continue-less {
+  margin-top: 0.85rem;
+  margin-bottom: 0;
+}
+
 .artwork-continue:hover,
 .artwork-continue:focus {
   background: rgba(143, 46, 43, 0.08);
@@ -435,8 +458,8 @@ button { font-family: inherit; cursor: pointer; }
   margin-left: 0.35rem;
 }
 
-.artwork-continue[aria-expanded="true"]::after {
-  transform: rotate(180deg);
+.artwork-continue-less::after {
+  content: '↑';
 }
 
 .artwork-info p {
@@ -773,14 +796,33 @@ button { font-family: inherit; cursor: pointer; }
 }
 
 .red-line-closing-rule {
-  height: 26px;
-  width: min(100%, 340px);
+  height: auto;
+  width: min(100%, 520px);
   margin: 2rem auto 0 0;
-  background-image: var(--hand-line);
-  background-repeat: no-repeat;
-  background-position: left bottom;
-  background-size: 100% 100%;
+  position: relative;
+  background: transparent;
+}
+
+.red-line-closing-rule img {
+  display: block;
+  width: 100%;
+  max-height: 90px;
+  object-fit: contain;
+  object-position: left center;
   opacity: 0.92;
+  mix-blend-mode: multiply;
+  filter: contrast(1.05);
+  background: transparent;
+}
+
+@media (max-width: 1099px) {
+  .red-line-closing-rule {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .red-line-closing-rule img {
+    object-position: center;
+  }
 }
 
 @media (min-width: 1100px) {
@@ -799,6 +841,8 @@ button { font-family: inherit; cursor: pointer; }
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
+    padding-left: 0;
+    border-left: none;
   }
 
   .red-line-images {
@@ -807,11 +851,6 @@ button { font-family: inherit; cursor: pointer; }
 
   .about-redline-divider {
     display: block;
-  }
-
-  .about-redline-section .red-line-text {
-    padding-left: 0;
-    border-left: none;
   }
 }
 
