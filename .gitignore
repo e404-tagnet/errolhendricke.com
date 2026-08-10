@@ -1,3 +1,6 @@
+# generated deploy directory
+public/
+
 # wrangler files
 .wrangler
 .dev.vars*
