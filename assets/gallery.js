@@ -111,16 +111,16 @@
       : '';
 
     slide.innerHTML = `
-      <figure class="artwork-frame">
+      <div class="artwork-frame">
         <img src="${collection.folder}/${art.file}" alt="${art.title}" loading="lazy" />
-        <figcaption class="artwork-caption">
+        <div class="artwork-caption">
           <span class="artwork-title">${art.title}</span>
           <span class="artwork-price">${art.price}</span>
-        </figcaption>
-      </figure>
-      <div class="artwork-info">
-        <div class="artwork-description-first"><p>${firstPart}</p></div>
-        ${expanderHtml}
+        </div>
+        <div class="artwork-info">
+          <div class="artwork-description-first"><p>${firstPart}</p></div>
+          ${expanderHtml}
+        </div>
       </div>
     `;
 

@@ -260,8 +260,7 @@ button { font-family: inherit; cursor: pointer; }
 }
 
 .collection-sidebar .collection-controls {
-  justify-content: flex-start;
-  margin-bottom: 1.25rem;
+  display: none;
 }
 
 .collection-main {
@@ -287,17 +286,23 @@ button { font-family: inherit; cursor: pointer; }
   line-height: 1.55;
 }
 
-.collection-controls {
+.collection-hero-controls {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 0.75rem;
   background: rgba(220, 214, 208, 0.55);
   padding: 0.35rem 0.6rem;
   border-radius: 999px;
   border: 1px solid var(--frame);
+  margin-top: 1rem;
 }
 
+.collection-controls {
+  display: none;
+}
+
+.collection-hero-controls .control-btn,
 .collection-controls .control-btn {
   font-size: 1.1rem;
   padding: 0.25rem 0.55rem;
@@ -312,6 +317,8 @@ button { font-family: inherit; cursor: pointer; }
   cursor: pointer;
 }
 
+.collection-hero-controls .control-btn:hover,
+.collection-hero-controls .control-btn:focus,
 .collection-controls .control-btn:hover {
   color: var(--accent-strong);
   background: rgba(143, 46, 43, 0.08);
@@ -378,9 +385,9 @@ button { font-family: inherit; cursor: pointer; }
 
 .artwork-frame {
   width: 100%;
-  min-width: 44vw;
-  max-width: 66vw;
-  min-height: 24rem;
+  min-width: 56vw;
+  max-width: 78vw;
+  min-height: 28rem;
   background: var(--frame-dark);
   padding: 1.8rem 1.8rem 1.6rem;
   border-radius: 6px;
@@ -398,7 +405,7 @@ button { font-family: inherit; cursor: pointer; }
 }
 
 .artwork-frame img {
-  max-height: 62vh;
+  max-height: 72vh;
   max-width: 100%;
   width: auto;
   object-fit: contain;
@@ -411,12 +418,10 @@ button { font-family: inherit; cursor: pointer; }
 
 .artwork-info {
   width: 100%;
-  min-width: 44vw;
-  max-width: 66vw;
-  margin: 1.25rem auto 0;
-  padding: 0.85rem 1.8rem 0;
-  border-top: 1px solid rgba(44, 40, 38, 0.12);
-  color: var(--frame-dark);
+  margin-top: 1.25rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--frame-light);
   font-family: var(--font-body);
   font-weight: 300;
   font-size: clamp(0.82rem, 1.2vw, 0.95rem);
@@ -430,10 +435,17 @@ button { font-family: inherit; cursor: pointer; }
   text-align: center;
 }
 
+.artwork-info,
+.artwork-description {
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .artwork-description-first p,
 .artwork-description-rest p {
   margin-bottom: 0.75rem;
-  color: var(--frame-dark);
+  color: var(--frame-light);
 }
 
 .artwork-description-rest {
@@ -459,7 +471,7 @@ button { font-family: inherit; cursor: pointer; }
   right: 0;
   bottom: 0;
   height: 24px;
-  background: linear-gradient(to bottom, transparent, var(--bg-primary));
+  background: linear-gradient(to bottom, transparent, var(--frame-dark));
   pointer-events: none;
   opacity: 0.55;
   transition: opacity 0.3s ease;
@@ -519,7 +531,7 @@ button { font-family: inherit; cursor: pointer; }
 
 .artwork-info p {
   margin-bottom: 0;
-  color: var(--frame-dark);
+  color: var(--frame-light);
   opacity: 0.92;
 }
 
@@ -1142,18 +1154,17 @@ button { font-family: inherit; cursor: pointer; }
   }
 
   .artwork-frame {
-    min-width: 52vw;
-    max-width: 72vw;
+    min-width: 62vw;
+    max-width: 84vw;
   }
 
   .artwork-frame img {
-    max-height: 70vh;
+    max-height: 76vh;
   }
 
   .artwork-info {
-    min-width: 52vw;
-    max-width: 72vw;
-    padding: 0.85rem 1.8rem 0;
+    min-width: 62vw;
+    max-width: 84vw;
   }
 }
 
@@ -1185,18 +1196,17 @@ button { font-family: inherit; cursor: pointer; }
   }
 
   .artwork-frame {
-    min-width: 60vw;
-    max-width: 82vw;
+    min-width: 68vw;
+    max-width: 90vw;
   }
 
   .artwork-frame img {
-    max-height: 46rem;
+    max-height: 52rem;
   }
 
   .artwork-info {
-    min-width: 60vw;
-    max-width: 82vw;
-    padding: 0.85rem 1.8rem 0;
+    min-width: 68vw;
+    max-width: 90vw;
   }
 }
 
@@ -1232,6 +1242,9 @@ button { font-family: inherit; cursor: pointer; }
   }
   .collection-hero {
     grid-template-columns: 1fr;
+  }
+  .collection-hero-controls {
+    margin: 0.75rem auto 0;
   }
   .collection-hero-collage {
     grid-template-columns: repeat(4, 1fr);
@@ -1283,18 +1296,18 @@ button { font-family: inherit; cursor: pointer; }
     padding: 0 0.5rem;
   }
   .artwork-frame {
-    min-width: 60vw;
-    max-width: 82vw;
-    min-height: 30rem;
+    min-width: 72vw;
+    max-width: 92vw;
+    min-height: 34rem;
     padding: 1.6rem 1rem;
   }
   .artwork-frame img {
-    max-height: 26rem;
-    max-width: min(68vw, 420px);
+    max-height: 32rem;
+    max-width: min(72vw, 520px);
   }
   .artwork-info {
-    min-width: 60vw;
-    max-width: 82vw;
+    min-width: 72vw;
+    max-width: 92vw;
     padding: 0.85rem 1rem 0;
   }
 }
