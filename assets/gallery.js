@@ -53,12 +53,22 @@
       btn.addEventListener('click', () => setImage(i));
       els.collectionHeroCollage.appendChild(btn);
     });
+    centerActiveHeroThumb();
+  }
+
+  function centerActiveHeroThumb() {
+    if (!els.collectionHeroCollage) return;
+    const active = els.collectionHeroCollage.querySelector('.hero-thumb.active');
+    if (active) {
+      active.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+    }
   }
 
   function updateHeroCollage() {
     if (!els.collectionHeroCollage) return;
     const thumbs = els.collectionHeroCollage.querySelectorAll('.hero-thumb');
     thumbs.forEach((t, i) => t.classList.toggle('active', i === state.imageIndex));
+    centerActiveHeroThumb();
   }
 
   function createSlide(art, collection, isClone) {
