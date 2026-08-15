@@ -451,11 +451,10 @@ button { font-family: inherit; cursor: pointer; }
 
 .artwork-info {
   width: 100%;
-  max-width: 100%;
   margin-top: 1.25rem;
-  padding-top: 0.85rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  color: var(--frame-light);
+  padding: 0.85rem 1.8rem 0;
+  border-top: 1px solid rgba(44, 40, 38, 0.12);
+  color: var(--frame-dark);
   font-family: var(--font-body);
   font-weight: 300;
   font-size: clamp(0.82rem, 1.2vw, 0.95rem);
@@ -471,7 +470,7 @@ button { font-family: inherit; cursor: pointer; }
 
 .artwork-info,
 .artwork-description {
-  max-width: 100%;
+  max-width: min(72vw, 100%);
   margin-left: auto;
   margin-right: auto;
 }
@@ -479,7 +478,7 @@ button { font-family: inherit; cursor: pointer; }
 .artwork-description-first p,
 .artwork-description-rest p {
   margin-bottom: 0.75rem;
-  color: var(--frame-light);
+  color: var(--frame-dark);
 }
 
 .artwork-description-rest {
@@ -505,7 +504,7 @@ button { font-family: inherit; cursor: pointer; }
   right: 0;
   bottom: 0;
   height: 24px;
-  background: linear-gradient(to bottom, transparent, var(--frame-dark));
+  background: linear-gradient(to bottom, transparent, var(--bg-primary));
   pointer-events: none;
   opacity: 0.55;
   transition: opacity 0.3s ease;
@@ -565,7 +564,7 @@ button { font-family: inherit; cursor: pointer; }
 
 .artwork-info p {
   margin-bottom: 0;
-  color: var(--frame-light);
+  color: var(--frame-dark);
   opacity: 0.92;
 }
 
@@ -1129,8 +1128,9 @@ button { font-family: inherit; cursor: pointer; }
     max-height: 88vh;
   }
 
-  .artwork-info {
-    max-width: 78vw;
+  .artwork-info,
+  .artwork-description {
+    max-width: min(78vw, 100%);
   }
 }
 
@@ -1153,8 +1153,9 @@ button { font-family: inherit; cursor: pointer; }
     max-height: 70rem;
   }
 
-  .artwork-info {
-    max-width: 86vw;
+  .artwork-info,
+  .artwork-description {
+    max-width: min(86vw, 100%);
   }
 }
 
@@ -1213,8 +1214,9 @@ button { font-family: inherit; cursor: pointer; }
     max-height: 44rem;
     max-width: min(88vw, 560px);
   }
-  .artwork-info {
-    max-width: 94vw;
+  .artwork-info,
+  .artwork-description {
+    max-width: min(94vw, 100%);
     padding: 0.85rem 1rem 0;
   }
 }

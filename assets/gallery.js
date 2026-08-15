@@ -104,10 +104,10 @@
           <span class="artwork-title">${art.title}</span>
           <span class="artwork-price">${art.price}</span>
         </div>
-        <div class="artwork-info">
-          <div class="artwork-description-first"><p>${firstPart}</p></div>
-          ${expanderHtml}
-        </div>
+      </div>
+      <div class="artwork-info">
+        <div class="artwork-description-first"><p>${firstPart}</p></div>
+        ${expanderHtml}
       </div>
     `;
 
