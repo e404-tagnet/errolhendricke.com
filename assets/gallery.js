@@ -9,11 +9,9 @@
   };
 
   const els = {
-    collectionName: document.getElementById('collection-name'),
     collectionHeroName: document.getElementById('collection-hero-name'),
     collectionHeroIntro: document.getElementById('collection-hero-intro'),
     collectionHeroCollage: document.getElementById('collection-hero-collage'),
-    collectionThumbs: document.getElementById('collection-thumbs'),
     viewport: document.querySelector('.carousel-viewport'),
     track: document.getElementById('carousel-track'),
     dots: document.getElementById('gallery-dots'),
@@ -41,26 +39,11 @@
     return Array.from(els.track.querySelectorAll('.carousel-slide:not(.clone)'));
   }
 
-  function renderThumbs() {
-    const collection = getCollection();
-    if (!collection || !collection.artworks.length || !els.collectionThumbs) return;
-
-    els.collectionThumbs.innerHTML = '';
-    collection.artworks.forEach((art, i) => {
-      const btn = document.createElement('button');
-      btn.className = 'collection-thumb' + (i === state.imageIndex ? ' active' : '');
-      btn.setAttribute('aria-label', `View ${art.title}`);
-      btn.innerHTML = `<img src="${collection.folder}/${art.file}" alt="" loading="lazy" />`;
-      btn.addEventListener('click', () => setImage(i));
-      els.collectionThumbs.appendChild(btn);
-    });
-  }
-
   function renderHeroCollage() {
     const collection = getCollection();
     if (!collection || !collection.artworks.length || !els.collectionHeroCollage) return;
 
-    const count = Math.min(6, collection.artworks.length);
+    const count = Math.min(12, collection.artworks.length);
     els.collectionHeroCollage.innerHTML = '';
     collection.artworks.slice(0, count).forEach((art, i) => {
       const btn = document.createElement('button');
@@ -70,12 +53,6 @@
       btn.addEventListener('click', () => setImage(i));
       els.collectionHeroCollage.appendChild(btn);
     });
-  }
-
-  function updateThumbs() {
-    if (!els.collectionThumbs) return;
-    const thumbs = els.collectionThumbs.querySelectorAll('.collection-thumb');
-    thumbs.forEach((t, i) => t.classList.toggle('active', i === state.imageIndex));
   }
 
   function updateHeroCollage() {
@@ -184,7 +161,6 @@
 
     state.imageIndex = 0;
     renderDots();
-    renderThumbs();
     renderHeroCollage();
 
     // Center on the real first slide (index 1) without animation
@@ -213,7 +189,6 @@
       els.collectionCounter.textContent = `${state.imageIndex + 1} / ${len}`;
     }
     renderDots();
-    updateThumbs();
     updateHeroCollage();
 
     clearTimeout(state.scrollTimeout);
@@ -228,7 +203,6 @@
     const len = state.collections.length;
     state.collectionIndex = ((index % len) + len) % len;
     const collection = getCollection();
-    if (els.collectionName) els.collectionName.textContent = collection.name;
     if (els.collectionHeroName) els.collectionHeroName.textContent = collection.name;
     if (els.collectionHeroIntro) els.collectionHeroIntro.textContent = collection.intro;
     state.imageIndex = 0;
@@ -285,7 +259,6 @@
       els.collectionCounter.textContent = `${state.imageIndex + 1} / ${len}`;
     }
     renderDots();
-    updateThumbs();
     updateHeroCollage();
   }
 
