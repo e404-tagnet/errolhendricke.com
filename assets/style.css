@@ -204,10 +204,10 @@ button { font-family: inherit; cursor: pointer; }
 .collection-hero-filmstrip {
   position: relative;
   min-width: 0;
-  padding: 0.5rem 0;
-  background: linear-gradient(180deg, rgba(35, 29, 26, 0.45), rgba(35, 29, 26, 0.35));
-  border-radius: 6px;
-  border: 1px solid rgba(44, 40, 38, 0.35);
+  padding: 0.85rem 0;
+  background: linear-gradient(180deg, rgba(35, 29, 26, 0.65), rgba(35, 29, 26, 0.45));
+  border-radius: 8px;
+  border: 1px solid rgba(44, 40, 38, 0.55);
   overflow: hidden;
 }
 
@@ -252,8 +252,8 @@ button { font-family: inherit; cursor: pointer; }
 
 .hero-thumb {
   flex: 0 0 auto;
-  width: 92px;
-  height: 92px;
+  width: 120px;
+  height: 120px;
   border: 2px solid rgba(232, 228, 222, 0.35);
   border-radius: 4px;
   overflow: hidden;
@@ -294,8 +294,8 @@ button { font-family: inherit; cursor: pointer; }
   }
 
   .hero-thumb {
-    width: 110px;
-    height: 110px;
+    width: 130px;
+    height: 130px;
   }
 }
 
@@ -306,8 +306,8 @@ button { font-family: inherit; cursor: pointer; }
   }
 
   .hero-thumb {
-    width: 120px;
-    height: 120px;
+    width: 140px;
+    height: 140px;
   }
 }
 
@@ -419,7 +419,7 @@ button { font-family: inherit; cursor: pointer; }
 
 .artwork-frame {
   width: fit-content;
-  max-width: 72vw;
+  max-width: 84vw;
   background: var(--frame-dark);
   padding: 1.8rem 1.8rem 1.6rem;
   border-radius: 6px;
@@ -437,10 +437,9 @@ button { font-family: inherit; cursor: pointer; }
 }
 
 .artwork-frame img {
-  min-height: 78vh;
-  max-height: 86vh;
-  max-width: 100%;
+  height: 72vh;
   width: auto;
+  max-width: 100%;
   object-fit: contain;
   box-shadow: 0 14px 44px rgba(0, 0, 0, 0.28);
   display: block;
@@ -1121,17 +1120,16 @@ button { font-family: inherit; cursor: pointer; }
   }
 
   .artwork-frame {
-    max-width: 78vw;
+    max-width: 86vw;
   }
 
   .artwork-frame img {
-    min-height: 82vh;
-    max-height: 90vh;
+    height: 78vh;
   }
 
   .artwork-info,
   .artwork-description {
-    max-width: min(78vw, 100%);
+    max-width: min(92vw, 100%);
   }
 }
 
@@ -1147,17 +1145,16 @@ button { font-family: inherit; cursor: pointer; }
   }
 
   .artwork-frame {
-    max-width: 86vw;
+    max-width: 92vw;
   }
 
   .artwork-frame img {
-    min-height: 70rem;
-    max-height: 74rem;
+    height: 64rem;
   }
 
   .artwork-info,
   .artwork-description {
-    max-width: min(86vw, 100%);
+    max-width: min(92vw, 100%);
   }
 }
 
@@ -1208,18 +1205,16 @@ button { font-family: inherit; cursor: pointer; }
     padding: 0 0.5rem;
   }
   .artwork-frame {
-    max-width: 94vw;
-    min-height: 34rem;
+    max-width: 98vw;
     padding: 1.6rem 1rem;
   }
   .artwork-frame img {
-    min-height: 46rem;
-    max-height: 52rem;
-    max-width: min(88vw, 560px);
+    height: 46rem;
+    max-width: min(92vw, 560px);
   }
   .artwork-info,
   .artwork-description {
-    max-width: min(94vw, 100%);
+    max-width: min(98vw, 100%);
     padding: 0.85rem 1rem 0;
   }
 }
