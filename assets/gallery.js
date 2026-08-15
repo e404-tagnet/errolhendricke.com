@@ -10,8 +10,9 @@
 
   const els = {
     collectionName: document.getElementById('collection-name'),
-    collectionIntro: document.getElementById('collection-intro'),
-    collectionCounter: document.getElementById('collection-counter'),
+    collectionHeroName: document.getElementById('collection-hero-name'),
+    collectionHeroIntro: document.getElementById('collection-hero-intro'),
+    collectionHeroCollage: document.getElementById('collection-hero-collage'),
     collectionThumbs: document.getElementById('collection-thumbs'),
     viewport: document.querySelector('.carousel-viewport'),
     track: document.getElementById('carousel-track'),
@@ -55,9 +56,31 @@
     });
   }
 
+  function renderHeroCollage() {
+    const collection = getCollection();
+    if (!collection || !collection.artworks.length || !els.collectionHeroCollage) return;
+
+    const count = Math.min(6, collection.artworks.length);
+    els.collectionHeroCollage.innerHTML = '';
+    collection.artworks.slice(0, count).forEach((art, i) => {
+      const btn = document.createElement('button');
+      btn.className = 'hero-thumb' + (i === state.imageIndex ? ' active' : '');
+      btn.setAttribute('aria-label', `View ${art.title}`);
+      btn.innerHTML = `<img src="${collection.folder}/${art.file}" alt="" loading="lazy" />`;
+      btn.addEventListener('click', () => setImage(i));
+      els.collectionHeroCollage.appendChild(btn);
+    });
+  }
+
   function updateThumbs() {
     if (!els.collectionThumbs) return;
     const thumbs = els.collectionThumbs.querySelectorAll('.collection-thumb');
+    thumbs.forEach((t, i) => t.classList.toggle('active', i === state.imageIndex));
+  }
+
+  function updateHeroCollage() {
+    if (!els.collectionHeroCollage) return;
+    const thumbs = els.collectionHeroCollage.querySelectorAll('.hero-thumb');
     thumbs.forEach((t, i) => t.classList.toggle('active', i === state.imageIndex));
   }
 
@@ -162,6 +185,7 @@
     state.imageIndex = 0;
     renderDots();
     renderThumbs();
+    renderHeroCollage();
 
     // Center on the real first slide (index 1) without animation
     requestAnimationFrame(() => {
@@ -190,6 +214,7 @@
     }
     renderDots();
     updateThumbs();
+    updateHeroCollage();
 
     clearTimeout(state.scrollTimeout);
     state.scrollTimeout = setTimeout(() => { state.scrolling = false; }, 650);
@@ -203,8 +228,9 @@
     const len = state.collections.length;
     state.collectionIndex = ((index % len) + len) % len;
     const collection = getCollection();
-    els.collectionName.textContent = collection.name;
-    els.collectionIntro.textContent = collection.intro;
+    if (els.collectionName) els.collectionName.textContent = collection.name;
+    if (els.collectionHeroName) els.collectionHeroName.textContent = collection.name;
+    if (els.collectionHeroIntro) els.collectionHeroIntro.textContent = collection.intro;
     state.imageIndex = 0;
     renderSlides();
   }
@@ -260,6 +286,7 @@
     }
     renderDots();
     updateThumbs();
+    updateHeroCollage();
   }
 
   function openLightbox(src, alt) {
@@ -298,7 +325,8 @@
       })
       .catch(err => {
         console.error(err);
-        document.getElementById('collection-intro').textContent = 'Unable to load gallery data. Please check artworks.json.';
+        const intro = document.getElementById('collection-hero-intro');
+        if (intro) intro.textContent = 'Unable to load gallery data. Please check artworks.json.';
       });
   }
 
