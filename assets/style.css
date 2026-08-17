@@ -150,8 +150,8 @@ button { font-family: inherit; cursor: pointer; }
 
 /* Collections */
 .collections-section {
-  padding: 0 0 3rem;
-  max-width: 1600px;
+  padding: 1.5rem 4vw 3rem;
+  max-width: 1400px;
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr;
@@ -160,7 +160,6 @@ button { font-family: inherit; cursor: pointer; }
     "main";
   gap: 1.5rem;
   align-items: start;
-  padding: 1.5rem 3vw 3rem;
 }
 
 .collection-hero {
@@ -366,9 +365,9 @@ button { font-family: inherit; cursor: pointer; }
   grid-template-columns: 44px 1fr 44px;
   align-items: center;
   gap: 0.75rem;
-  max-width: 1600px;
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 0 1vw;
+  padding: 0 4vw;
 }
 
 .carousel-viewport {
@@ -380,6 +379,7 @@ button { font-family: inherit; cursor: pointer; }
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
   width: 100%;
+  max-width: 100%;
 }
 
 .carousel-track {
@@ -419,7 +419,7 @@ button { font-family: inherit; cursor: pointer; }
 
 .artwork-frame {
   width: fit-content;
-  max-width: 84vw;
+  max-width: 100%;
   background: var(--frame-dark);
   padding: 1.8rem 1.8rem 1.6rem;
   border-radius: 6px;
@@ -440,6 +440,7 @@ button { font-family: inherit; cursor: pointer; }
   height: 72vh;
   width: auto;
   max-width: 100%;
+  min-width: 240px;
   object-fit: contain;
   box-shadow: 0 14px 44px rgba(0, 0, 0, 0.28);
   display: block;
@@ -1116,15 +1117,16 @@ button { font-family: inherit; cursor: pointer; }
       "hero"
       "main";
     gap: 2rem;
-    padding: 2rem 3vw 3rem;
+    padding: 2rem 4vw 3rem;
   }
 
   .artwork-frame {
-    max-width: 86vw;
+    max-width: 100%;
   }
 
   .artwork-frame img {
     height: 78vh;
+    min-width: 260px;
   }
 
   .artwork-info,
@@ -1141,15 +1143,16 @@ button { font-family: inherit; cursor: pointer; }
       "hero"
       "main";
     gap: 1.25rem;
-    padding: 1.25rem 2vw 2rem;
+    padding: 1.25rem 4vw 2rem;
   }
 
   .artwork-frame {
-    max-width: 92vw;
+    max-width: 100%;
   }
 
   .artwork-frame img {
     height: 64rem;
+    min-width: 220px;
   }
 
   .artwork-info,
@@ -1181,15 +1184,15 @@ button { font-family: inherit; cursor: pointer; }
     letter-spacing: 0.1em;
   }
   .collections-section {
-    grid-template-columns: 1fr;
     grid-template-areas:
       "hero"
-      "sidebar"
       "main";
-    padding: 1rem 4vw 2rem;
+    gap: 2rem;
+    padding: 2rem 4vw 3rem;
   }
-  .collection-hero {
-    grid-template-columns: 1fr;
+
+  .artwork-frame {
+    max-width: 100%;
   }
   .collection-hero-controls {
     margin: 0.75rem auto 0;
@@ -1205,12 +1208,13 @@ button { font-family: inherit; cursor: pointer; }
     padding: 0 0.5rem;
   }
   .artwork-frame {
-    max-width: 98vw;
+    max-width: 100%;
     padding: 1.6rem 1rem;
   }
   .artwork-frame img {
     height: 46rem;
-    max-width: min(92vw, 560px);
+    max-width: 100%;
+    min-width: 200px;
   }
   .artwork-info,
   .artwork-description {
