@@ -52,7 +52,6 @@ Static artist portfolio and gallery site for Errol Hendrickse.
 - Refine red dash/hand-drawn underline if further visual adjustments are needed.
 
 <!-- TAGNET README FOOTER — start -->
----
 
 <div align="center">
 
