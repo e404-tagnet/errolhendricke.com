@@ -1,11 +1,10 @@
 <!-- TAGNET README HEADER — Catppuccin Mocha — do not edit by hand -->
 <div align="center">
 
-[![License](https://img.shields.io/github/license/e404-tagnet/errollhendriscke.com?color=313244&labelColor=11111b&label=License&style=flat-square)](https://github.com/e404-tagnet/errollhendriscke.com/blob/main/LICENSE)
-[![Status](https://img.shields.io/badge/Status-stable-a6e3a1?labelColor=11111b&style=flat-square)](https://github.com/e404-tagnet/errollhendriscke.com/pulse)
-[![Version](https://img.shields.io/github/v/release/e404-tagnet/errollhendriscke.com?color=313244&labelColor=11111b&label=Version&style=flat-square)](https://github.com/e404-tagnet/errollhendriscke.com/releases)
-[![Website](https://img.shields.io/badge/Live-errolhendrickse.uk-94e2d5?labelColor=11111b&style=flat-square&logo=google-chrome&logoColor=94e2d5)](https://errolhendrickse.uk)
-[![Repo](https://img.shields.io/badge/Repo-errollhendriscke.com-94e2d5?labelColor=11111b&style=flat-square&logo=github&logoColor=94e2d5)](https://github.com/e404-tagnet/errollhendriscke.com)
+[![License](https://img.shields.io/github/license/e404-tagnet/errolhendricke.com?color=313244&labelColor=11111b&label=License&style=flat-square)](https://github.com/e404-tagnet/errolhendricke.com/blob/main/LICENSE)
+[![Status](https://img.shields.io/badge/Status-stable-a6e3a1?labelColor=11111b&style=flat-square)](https://github.com/e404-tagnet/errolhendricke.com/pulse)
+[![Version](https://img.shields.io/github/v/release/e404-tagnet/errolhendricke.com?color=313244&labelColor=11111b&label=Version&style=flat-square)](https://github.com/e404-tagnet/errolhendricke.com/releases)
+[![Repo](https://img.shields.io/badge/Repo-errolhendricke.com-94e2d5?labelColor=11111b&style=flat-square&logo=github&logoColor=94e2d5)](https://github.com/e404-tagnet/errolhendricke.com)
 [![Tagnet](https://img.shields.io/badge/By-Tagnet-89dceb?labelColor=11111b&style=flat-square&logo=tag&logoColor=89dceb)](https://tagnet.dev)
 
 </div>
