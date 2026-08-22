@@ -420,9 +420,9 @@ button { font-family: inherit; cursor: pointer; }
 .artwork-frame {
   width: fit-content;
   max-width: 100%;
-  max-height: 78vh;
+  max-height: 88vh;
   background: var(--frame-dark);
-  padding: 1.8rem 1.8rem 1.6rem;
+  padding: clamp(1rem, 2.5vw, 1.8rem);
   border-radius: 6px;
   box-shadow:
     0 28px 80px rgba(15, 15, 18, 0.25),
@@ -438,11 +438,11 @@ button { font-family: inherit; cursor: pointer; }
 }
 
 .artwork-frame img {
-  height: 72vh;
+  height: 82vh;
   width: auto;
   max-width: 100%;
-  max-height: 72vh;
-  min-width: 240px;
+  max-height: 82vh;
+  min-width: 180px;
   object-fit: contain;
   box-shadow: 0 14px 44px rgba(0, 0, 0, 0.28);
   display: block;
@@ -1124,12 +1124,13 @@ button { font-family: inherit; cursor: pointer; }
 
   .artwork-frame {
     max-width: 100%;
+    max-height: 90vh;
   }
 
   .artwork-frame img {
-    height: 78vh;
-    max-height: 78vh;
-    min-width: 260px;
+    height: 86vh;
+    max-height: 86vh;
+    min-width: 220px;
   }
 
   .artwork-info,
@@ -1151,12 +1152,13 @@ button { font-family: inherit; cursor: pointer; }
 
   .artwork-frame {
     max-width: 100%;
+    max-height: 90vh;
   }
 
   .artwork-frame img {
-    height: 64vh;
-    max-height: 64vh;
-    min-width: 220px;
+    height: 70vh;
+    max-height: 70vh;
+    min-width: 200px;
   }
 
   .artwork-info,
@@ -1213,13 +1215,14 @@ button { font-family: inherit; cursor: pointer; }
   }
   .artwork-frame {
     max-width: 100%;
+    max-height: 85vh;
     padding: 1.6rem 1rem;
   }
   .artwork-frame img {
-    height: 46vh;
-    max-height: 46vh;
+    height: 58vh;
+    max-height: 58vh;
     max-width: 100%;
-    min-width: 200px;
+    min-width: 160px;
   }
   .artwork-info,
   .artwork-description {
