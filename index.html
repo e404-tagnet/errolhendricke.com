@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
   <title>Errol Hendrickse — Online Gallery</title>
-  <link rel="stylesheet" href="assets/style.css?v=25" />
+  <link rel="stylesheet" href="assets/style.css?v=26" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet" />
@@ -21,6 +21,8 @@
       background: var(--bg-gradient);
       position: relative;
       overflow: hidden;
+      justify-content: flex-start;
+      padding-top: 35vh;
     }
 .placeholder-title {
       font-family: var(--font-display);
@@ -44,10 +46,10 @@
       margin-top: 1.2rem;
     }
     .placeholder-gap {
-      height: clamp(3rem, 10vh, 6rem);
+      height: clamp(2rem, 4vh, 3rem);
     }
     .placeholder-soon {
-      position: fixed;
+      position: relative;
       bottom: 1rem;
       left: 50%;
       transform: translateX(-50%);

@@ -393,7 +393,7 @@ button { font-family: inherit; cursor: pointer; }
   scroll-snap-align: center;
   display: flex;
   justify-content: center;
-  padding: 0 1vw;
+  padding: 0;
   min-width: 100%;
   width: 100%;
   max-width: 100%;
@@ -420,6 +420,7 @@ button { font-family: inherit; cursor: pointer; }
 .artwork-frame {
   width: fit-content;
   max-width: 100%;
+  max-height: 78vh;
   background: var(--frame-dark);
   padding: 1.8rem 1.8rem 1.6rem;
   border-radius: 6px;
@@ -440,6 +441,7 @@ button { font-family: inherit; cursor: pointer; }
   height: 72vh;
   width: auto;
   max-width: 100%;
+  max-height: 72vh;
   min-width: 240px;
   object-fit: contain;
   box-shadow: 0 14px 44px rgba(0, 0, 0, 0.28);
@@ -470,9 +472,11 @@ button { font-family: inherit; cursor: pointer; }
 
 .artwork-info,
 .artwork-description {
-  max-width: min(72vw, 100%);
+  max-width: min(92vw, 720px);
   margin-left: auto;
   margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .artwork-description-first p,
@@ -850,7 +854,7 @@ button { font-family: inherit; cursor: pointer; }
   flex: 1 1 0;
   min-height: 0;
   width: 100%;
-  max-width: 260px;
+  max-width: none;
   aspect-ratio: auto;
   object-fit: cover;
   border-radius: 3px;
@@ -861,9 +865,16 @@ button { font-family: inherit; cursor: pointer; }
 
 @media (min-width: 1100px) {
   .about-redline-section {
-    grid-template-columns: 1.25fr auto minmax(140px, 1fr) auto 1.25fr;
+    grid-template-columns: 1fr 1fr 1fr;
     gap: clamp(2rem, 4vw, 4rem);
     align-items: stretch;
+  }
+
+  .about-redline-section .about-text,
+  .red-line-images,
+  .about-redline-section .red-line-text {
+    min-width: 0;
+    width: 100%;
   }
 
   .about-redline-section .about-text {
@@ -884,36 +895,27 @@ button { font-family: inherit; cursor: pointer; }
   }
 
   .about-redline-divider {
-    display: block;
+    display: none;
   }
 }
 
 @media (max-width: 1099px) {
   .about-redline-section {
     text-align: center;
+    grid-template-columns: 1fr;
+  }
+  .red-line-images {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
   }
   .red-line-images img {
     max-width: 320px;
     aspect-ratio: 3 / 4;
-    flex: none;
+    flex: 1 1 280px;
   }
-}
-
-.about-redline-divider {
-  display: none;
-  width: 1px;
-  background: var(--frame);
-  opacity: 0.65;
-  align-self: stretch;
-  justify-self: center;
-}
-
-.red-line-closing-rule {
-  height: auto;
-  width: min(100%, 520px);
-  margin: 2rem auto 0 0;
-  position: relative;
-  background: transparent;
 }
 
 .red-line-closing-rule img {
@@ -1126,12 +1128,13 @@ button { font-family: inherit; cursor: pointer; }
 
   .artwork-frame img {
     height: 78vh;
+    max-height: 78vh;
     min-width: 260px;
   }
 
   .artwork-info,
   .artwork-description {
-    max-width: min(92vw, 100%);
+    max-width: min(92vw, 720px);
   }
 }
 
@@ -1151,7 +1154,8 @@ button { font-family: inherit; cursor: pointer; }
   }
 
   .artwork-frame img {
-    height: 64rem;
+    height: 64vh;
+    max-height: 64vh;
     min-width: 220px;
   }
 
@@ -1212,7 +1216,8 @@ button { font-family: inherit; cursor: pointer; }
     padding: 1.6rem 1rem;
   }
   .artwork-frame img {
-    height: 46rem;
+    height: 46vh;
+    max-height: 46vh;
     max-width: 100%;
     min-width: 200px;
   }
