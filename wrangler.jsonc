@@ -9,6 +9,9 @@
   "assets": {
     "directory": "public"
   },
+  "routes": [
+    { "pattern": "errolhendrickse.uk", "custom_domain": true }
+  ],
   "compatibility_flags": [
     "nodejs_compat"
   ]
