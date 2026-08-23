@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "build": "rm -rf public/* && mkdir -p public/assets public/artworks && cp index.html about.html gallery.html collection.html placeholder.html README.md public/ && cp -r assets/* public/assets/ && cp -r artworks/* public/artworks/",
+    "build": "rm -rf public/* && mkdir -p public/assets public/artworks && cp index.html about.html collection.html placeholder.html README.md public/ && cp -r assets/* public/assets/ && cp -r artworks/* public/artworks/",
     "deploy": "npm run build && wrangler deploy"
   },
   "dependencies": {

@@ -1,11 +1,12 @@
 .collection-overview {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 2rem;
+  gap: 1.5rem;
   max-width: 1400px;
   margin: 0 auto;
   padding: 3rem 4vw;
   border-bottom: 1px solid var(--frame);
+  align-items: start;
 }
 
 .overview-text {
@@ -26,27 +27,51 @@
 }
 
 .collection-overview-controls {
-  display: inline-flex;
-  gap: 0.75rem;
-  background: rgba(220, 214, 208, 0.55);
-  padding: 0.35rem 0.6rem;
-  border-radius: 999px;
-  border: 1px solid var(--frame);
-  margin-top: 0.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.25rem;
+  margin-top: 0.25rem;
+}
+
+.collection-overview-controls .control-btn,
+.detail-image-nav .control-btn {
+  font-size: 1.6rem;
+  line-height: 1;
+  padding: 0.55rem 1.1rem;
+  min-width: 3.2rem;
+  min-height: 3.2rem;
+  border-radius: 50%;
+  border: 1px solid rgba(232, 228, 222, 0.5);
+  background: var(--frame-dark);
+  color: var(--text-muted);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+  transition: transform 0.2s ease, color 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+  cursor: pointer;
+}
+
+.collection-overview-controls .control-btn:hover,
+.collection-overview-controls .control-btn:focus,
+.detail-image-nav .control-btn:hover,
+.detail-image-nav .control-btn:focus {
+  background: rgba(169, 120, 111, 0.18);
+  color: var(--accent-strong);
+  border-color: var(--accent-strong);
+  transform: scale(1.08);
+  outline: none;
 }
 
 .overview-thumbs {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.85rem;
+  gap: 1rem;
   justify-content: flex-start;
   align-items: flex-start;
 }
 
 .overview-thumb {
   flex: 0 0 auto;
-  width: 140px;
-  height: 140px;
+  width: 155px;
+  height: 155px;
   border: 2px solid rgba(232, 228, 222, 0.35);
   border-radius: 4px;
   overflow: hidden;
@@ -87,8 +112,9 @@
 
 .detail-image {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+  gap: 1rem;
   background: var(--frame-dark);
   padding: 1.5rem;
   border-radius: 6px;
@@ -107,6 +133,12 @@
   object-fit: contain;
   display: block;
   box-shadow: 0 14px 44px rgba(0, 0, 0, 0.28);
+}
+
+.detail-image-nav {
+  display: flex;
+  justify-content: center;
+  gap: 1.25rem;
 }
 
 .detail-info {
@@ -171,8 +203,8 @@
   }
 
   .overview-thumb {
-    width: 160px;
-    height: 160px;
+    width: 180px;
+    height: 180px;
   }
 
   .artwork-detail {

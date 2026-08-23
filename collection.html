@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
   <title>Errol Hendrickse — Collection View</title>
-  <link rel="stylesheet" href="assets/style.css?v=26i" />
-  <link rel="stylesheet" href="assets/collection.css?v=2" />
+  <link rel="stylesheet" href="assets/style.css?v=26j" />
+  <link rel="stylesheet" href="assets/collection.css?v=3" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@400;500;600;700;800;900&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet" />
@@ -18,8 +18,7 @@
     <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">Menu</button>
     <nav class="site-nav" aria-label="Main">
       <a href="index.html">Home</a>
-      <a href="gallery.html">Collections</a>
-      <a href="collection.html" aria-current="page">Collection</a>
+      <a href="collection.html" aria-current="page">Collections</a>
       <a href="about.html">About</a>
     </nav>
   </header>
@@ -29,29 +28,29 @@
       <div class="overview-text">
         <h2 id="collection-name" class="collection-name">Collection</h2>
         <p id="collection-desc" class="collection-intro">Select a collection to view its paintings.</p>
-        <div class="collection-overview-controls">
-          <button id="prev-collection" class="control-btn arrow-only" aria-label="Previous collection">←</button>
-          <button id="next-collection" class="control-btn arrow-only" aria-label="Next collection">→</button>
-        </div>
       </div>
       <div class="overview-thumbs" id="overview-thumbs" aria-label="Collection thumbnails">
         <!-- thumbnails injected by JS -->
+      </div>
+      <div class="collection-overview-controls">
+        <button id="prev-collection" class="control-btn arrow-only" aria-label="Previous collection">←</button>
+        <button id="next-collection" class="control-btn arrow-only" aria-label="Next collection">→</button>
       </div>
     </section>
 
     <section id="artwork-detail" class="artwork-detail" aria-labelledby="artwork-title">
       <div class="detail-image">
         <img id="detail-img" src="" alt="" loading="lazy" />
+        <div class="detail-image-nav">
+          <button id="prev-artwork" class="control-btn arrow-only" aria-label="Previous artwork">←</button>
+          <button id="next-artwork" class="control-btn arrow-only" aria-label="Next artwork">→</button>
+        </div>
       </div>
       <div class="detail-info">
         <h3 id="artwork-title" class="artwork-title">Artwork Title</h3>
         <span id="artwork-price" class="artwork-price"></span>
         <div id="artwork-description" class="artwork-description">
           <!-- description injected by JS -->
-        </div>
-        <div class="detail-nav">
-          <button id="prev-artwork" class="control-btn arrow-only" aria-label="Previous artwork">←</button>
-          <button id="next-artwork" class="control-btn arrow-only" aria-label="Next artwork">→</button>
         </div>
       </div>
     </section>
@@ -76,7 +75,7 @@
     <iframe title="Rickroll" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
   </div>
 
-  <script src="assets/collection.js?v=2"></script>
+  <script src="assets/collection.js?v=3"></script>
   <script src="assets/rickroll.js"></script>
   <script>
     (function () {
