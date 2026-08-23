@@ -815,12 +815,10 @@ button { font-family: inherit; cursor: pointer; }
 
 .red-line-verse span {
   display: block;
-  font-weight: 400;
-  font-style: italic;
-  letter-spacing: 0.02em;
-  color: var(--text-muted);
-  font-size: 0.95em;
-  margin-top: 0.5rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--accent-strong);
+  margin-top: 0.4rem;
 }
 
 /* About + Red Line combined */
@@ -1251,3 +1249,4 @@ a:focus-visible, button:focus-visible, .dot:focus-visible {
   outline: 2px solid var(--accent-strong);
   outline-offset: 2px;
 }
+renamed '/tmp/hermes-snap-bcdff422d1fb.sh.tmp.d6gTCFyVVl' -> '/tmp/hermes-snap-bcdff422d1fb.sh'
