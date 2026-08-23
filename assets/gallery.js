@@ -100,10 +100,10 @@
     slide.innerHTML = `
       <div class="artwork-frame">
         <img src="${collection.folder}/${art.file}" alt="${art.title}" loading="lazy" />
-        <div class="artwork-caption">
-          <span class="artwork-title">${art.title}</span>
-          <span class="artwork-price">${art.price}</span>
-        </div>
+      </div>
+      <div class="artwork-caption">
+        <span class="artwork-title">${art.title}</span>
+        <span class="artwork-price">${art.price}</span>
       </div>
       <div class="artwork-info">
         <div class="artwork-description-first"><p>${firstPart}</p></div>
