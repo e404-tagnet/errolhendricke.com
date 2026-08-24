@@ -4,7 +4,7 @@
   gap: 1.5rem;
   max-width: 1400px;
   margin: 0 auto;
-  padding: 3rem 4vw;
+  padding: 2.5rem 4vw 2rem;
   border-bottom: 1px solid var(--frame);
   align-items: start;
 }
@@ -35,17 +35,20 @@
 
 .collection-overview-controls .control-btn,
 .detail-image-nav .control-btn {
-  font-size: 1.6rem;
+  font-size: 1.35rem;
   line-height: 1;
-  padding: 0.55rem 1.1rem;
-  min-width: 3.2rem;
-  min-height: 3.2rem;
-  border-radius: 50%;
-  border: 1px solid rgba(232, 228, 222, 0.5);
-  background: var(--frame-dark);
-  color: var(--text-muted);
-  box-shadow: 0 6px 18px rgba(0,0,0,0.18);
-  transition: transform 0.2s ease, color 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+  padding: 0.55rem 1.25rem;
+  min-width: 3rem;
+  min-height: 2.75rem;
+  border-radius: 999px;
+  border: 1.5px solid rgba(143, 46, 43, 0.45);
+  background: rgba(220, 214, 208, 0.45);
+  color: rgba(143, 46, 43, 0.85);
+  font-weight: 600;
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.08),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.35);
+  transition: transform 0.2s ease, color 0.2s ease, background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
   cursor: pointer;
 }
 
@@ -53,10 +56,11 @@
 .collection-overview-controls .control-btn:focus,
 .detail-image-nav .control-btn:hover,
 .detail-image-nav .control-btn:focus {
-  background: rgba(169, 120, 111, 0.18);
-  color: var(--accent-strong);
-  border-color: var(--accent-strong);
-  transform: scale(1.08);
+  background: rgba(143, 46, 43, 0.92);
+  color: #fff;
+  border-color: rgba(143, 46, 43, 0.92);
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
   outline: none;
 }
 
@@ -72,14 +76,18 @@
   flex: 0 0 auto;
   width: 155px;
   height: 155px;
-  border: 2px solid rgba(232, 228, 222, 0.35);
-  border-radius: 4px;
+  border: 8px solid var(--frame);
+  border-bottom-width: 22px;
+  border-radius: 2px;
   overflow: hidden;
   background: var(--frame-dark);
   padding: 0;
   cursor: pointer;
-  opacity: 0.75;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  opacity: 0.85;
+  box-shadow:
+    0 6px 18px rgba(0, 0, 0, 0.15),
+    0 1px 3px rgba(0, 0, 0, 0.1),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.06);
   transition: opacity 0.2s ease, transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -87,10 +95,12 @@
 .overview-thumb:focus,
 .overview-thumb.active {
   opacity: 1;
-  transform: translateY(-3px) scale(1.04);
-  border-color: var(--accent-strong);
+  transform: translateY(-4px) scale(1.03);
+  border-color: var(--frame);
   outline: none;
-  box-shadow: 0 0 0 2px var(--accent-strong), 0 8px 20px rgba(0, 0, 0, 0.25);
+  box-shadow:
+    0 0 0 2px var(--accent-strong),
+    0 14px 30px rgba(0, 0, 0, 0.25);
 }
 
 .overview-thumb img {
@@ -106,7 +116,7 @@
   gap: 2.5rem;
   max-width: 1400px;
   margin: 0 auto;
-  padding: 3rem 4vw;
+  padding: 2rem 4vw 3rem;
   align-items: start;
 }
 
@@ -114,10 +124,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
+  gap: 1.25rem;
   background: var(--frame-dark);
-  padding: 1.5rem;
-  border-radius: 6px;
+  padding: clamp(1rem, 2.5vw, 2rem);
+  border-radius: 4px;
   box-shadow:
     0 28px 80px rgba(15, 15, 18, 0.25),
     inset 0 0 0 1px rgba(255, 255, 255, 0.04),
@@ -137,12 +147,18 @@
   object-fit: contain;
   display: block;
   box-shadow: 0 14px 44px rgba(0, 0, 0, 0.28);
+  border: 12px solid var(--frame);
+  border-bottom-width: 28px;
+  border-radius: 2px;
+  background: var(--frame);
 }
 
 @media (max-width: 899px) {
   .detail-image img {
     height: 58vh;
     max-height: 64vh;
+    border-width: 8px;
+    border-bottom-width: 20px;
   }
 }
 
