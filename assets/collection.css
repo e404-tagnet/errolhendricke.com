@@ -123,16 +123,27 @@
     inset 0 0 0 1px rgba(255, 255, 255, 0.04),
     inset 0 0 90px 40px rgba(15, 15, 18, 0.45);
   border: 1px solid rgba(44, 40, 38, 0.55);
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 auto;
   min-height: 50vh;
 }
 
 .detail-image img {
-  width: 100%;
-  height: auto;
-  max-height: 72vh;
+  width: auto;
+  height: 72vh;
+  max-width: 100%;
+  max-height: 80vh;
   object-fit: contain;
   display: block;
   box-shadow: 0 14px 44px rgba(0, 0, 0, 0.28);
+}
+
+@media (max-width: 899px) {
+  .detail-image img {
+    height: 58vh;
+    max-height: 64vh;
+  }
 }
 
 .detail-image-nav {
